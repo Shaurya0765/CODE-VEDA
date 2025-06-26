@@ -1,0 +1,173 @@
+/* Responsive styles for VedicBook */
+@media (max-width: 992px) {
+  .book-container {
+    margin: 3rem 0;
+  }
+
+  .PageContent {
+    padding: 3rem;
+  }
+
+  .PageWrapper {
+    min-height: 500px;
+  }
+
+  .Button {
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-container {
+    margin: 2rem 0;
+  }
+
+  .PageContent {
+    padding: 2rem;
+  }
+
+  .PageContent h1 {
+    font-size: 2.2rem;
+  }
+
+  .PageContent h2 {
+    font-size: 1.8rem;
+  }
+
+  .PageWrapper {
+    min-height: 450px;
+  }
+
+  .Button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .PageCounter {
+    padding: 0.4rem 1.5rem;
+    font-size: 0.8rem;
+  }
+  
+  /* Vertical book styles */
+  .page-section {
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .table-of-contents {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    max-height: 150px;
+  }
+  
+  /* Additional mobile styles for vertical book */
+  .vedic-book-page {
+    padding: 1rem 0;
+  }
+  
+  .vedic-book-page h1 {
+    font-size: 2rem !important;
+  }
+  
+  .vedic-book-page h2 {
+    font-size: 1.6rem !important;
+  }
+  
+  .vedic-book-page p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  .vedic-book-page .vedic-quote {
+    font-size: 1.1rem !important;
+    padding: 1rem !important;
+    margin: 1.5rem 0 !important;
+  }
+  
+  .vedic-book-page .sanskrit {
+    font-size: 1.4rem !important;
+  }
+  
+  .vedic-book-page ul li {
+    font-size: 1rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .PageContent {
+    padding: 1.5rem;
+  }
+
+  .PageContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .PageContent h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .PageContent p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .PageContent .vedic-quote {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+  
+  .PageContent .sanskrit {
+    font-size: 1.4rem;
+  }
+
+  .PageContent li {
+    font-size: 0.95rem;
+  }
+
+  .PageWrapper {
+    min-height: 400px;
+  }
+
+  .Button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .BookControls {
+    margin-top: 1.5rem;
+  }
+  
+  /* Vertical book styles for very small screens */
+  .page-section {
+    padding: 1.25rem;
+  }
+  
+  .table-of-contents {
+    max-height: 120px;
+  }
+    /* Custom styles for the vertical book in Why Code Veda page */
+  .vertical-book-section {
+    scroll-margin-top: 80px;
+  }
+  
+  .vedic-scroll-container {
+    scroll-behavior: smooth;
+  }
+  
+  .vedic-book-page {
+    padding: 1rem 0;
+  }
+  
+  .vedic-book-page .page-content {
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+  
+  .vedic-book-page .vedic-quote {
+    font-size: 1rem;
+    padding: 0.75rem;
+    margin: 1rem 0;
+  }
+}

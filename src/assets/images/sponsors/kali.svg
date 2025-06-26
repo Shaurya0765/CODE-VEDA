@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150">
+  <style>
+    .company-name { font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; fill: #2a2a2a; }
+    .tagline { font-family: Arial, sans-serif; font-size: 14px; fill: #666; }
+    .kali-symbol { font-family: Arial, sans-serif; font-size: 24px; fill: #2a2a2a; }
+    .bg { fill: #f2f2f2; }
+    .shield { fill: none; stroke: #2a2a2a; stroke-width: 2; }
+    .lock { fill: #2a2a2a; }
+  </style>
+  <rect class="bg" x="25" y="25" width="250" height="100" rx="10" ry="10" />
+  <!-- Security shield -->
+  <path class="shield" d="M75,45 L55,55 L55,85 C55,85 65,95 75,95 C85,95 95,85 95,85 L95,55 L75,45 Z" />
+  <circle class="lock" cx="75" cy="70" r="5" />
+  <rect class="lock" x="70" y="70" width="10" height="12" />
+  <text x="75" y="108" text-anchor="middle" class="kali-symbol">क</text>
+  <text x="170" y="80" text-anchor="middle" class="company-name">Kali Security</text>
+  <text x="170" y="105" text-anchor="middle" class="tagline">Protection Through Knowledge</text>
+</svg>

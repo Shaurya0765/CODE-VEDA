@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <g fill="none" stroke="#f3e9c6" stroke-width="1" opacity="0.15" filter="url(#glow)">
+    <!-- Sacred geometry - Flower of life pattern -->
+    <circle cx="400" cy="400" r="200"/>
+    <circle cx="400" cy="200" r="200"/>
+    <circle cx="400" cy="600" r="200"/>
+    <circle cx="200" cy="400" r="200"/>
+    <circle cx="600" cy="400" r="200"/>
+    <circle cx="260" cy="260" r="200"/>
+    <circle cx="540" cy="260" r="200"/>
+    <circle cx="260" cy="540" r="200"/>
+    <circle cx="540" cy="540" r="200"/>
+    
+    <!-- Sri Yantra Pattern - Central Components -->
+    <polygon points="400,230 450,330 350,330" fill="none" stroke="#f3e9c6" stroke-width="0.8"/>
+    <polygon points="400,570 450,470 350,470" fill="none" stroke="#f3e9c6" stroke-width="0.8"/>
+    <polygon points="300,400 350,330 350,470" fill="none" stroke="#f3e9c6" stroke-width="0.8"/>
+    <polygon points="500,400 450,330 450,470" fill="none" stroke="#f3e9c6" stroke-width="0.8"/>
+    
+    <!-- Mandala elements -->
+    <circle cx="400" cy="400" r="250" stroke-dasharray="10,5"/>
+    <circle cx="400" cy="400" r="300" stroke-dasharray="5,5,2,5"/>
+    
+    <!-- Lotus petals -->
+    <path d="M400,150 Q450,250 400,350 Q350,250 400,150" fill="none" stroke-width="0.5"/>
+    <path d="M400,450 Q450,550 400,650 Q350,550 400,450" fill="none" stroke-width="0.5"/>
+    <path d="M150,400 Q250,450 350,400 Q250,350 150,400" fill="none" stroke-width="0.5"/>
+    <path d="M450,400 Q550,450 650,400 Q550,350 450,400" fill="none" stroke-width="0.5"/>
+    
+    <!-- Om symbol in center (subtle outline) -->
+    <path d="M390,400 Q410,380 430,390 Q440,410 420,420 Q400,430 390,400" fill="none" stroke-width="0.5"/>
+  </g>
+</svg>
+    <circle cx="260" cy="540" r="200"/>
+    <circle cx="540" cy="540" r="200"/>
+    
+    <!-- Central star pattern -->
+    <path d="M400,200 L400,600 M200,400 L600,400 M260,260 L540,540 M260,540 L540,260"/>
+    
+    <!-- Border -->
+    <circle cx="400" cy="400" r="380" stroke-width="1.5"/>
+  </g>
+</svg>

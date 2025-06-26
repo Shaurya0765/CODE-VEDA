@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150">
+  <style>
+    .company-name { font-family: Arial, sans-serif; font-size: 38px; font-weight: bold; fill: #853c30; }
+    .tagline { font-family: Arial, sans-serif; font-size: 14px; fill: #666; }
+    .om { font-family: Arial, sans-serif; font-size: 60px; fill: #853c30; }
+    .bg { fill: #f7eae6; }
+  </style>
+  <rect class="bg" x="25" y="25" width="250" height="100" rx="10" ry="10" />
+  <text x="75" y="85" class="om">ॐ</text>
+  <text x="185" y="80" text-anchor="middle" class="company-name">Om Systems</text>
+  <text x="185" y="105" text-anchor="middle" class="tagline">Universal Technology Solutions</text>
+</svg>

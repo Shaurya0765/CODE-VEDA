@@ -1,0 +1,80 @@
+[
+    {
+      "tier": "Brahma Tier",
+      "color": "#FFC738",
+      "description": "Our principal sponsors who make the entire CodeVeda hackathon possible.",
+      "sponsors": [
+        {
+          "name": "Physics Wallah",
+          "logo": "/pw.jpeg",
+          "description": "Leading AI and machine learning solutions for modern businesses.",
+          "website": "https://www.pw.live/",
+          "tier": "Brahma Tier"
+        }
+      ]
+    },
+    {
+      "tier": "Vishnu Tier",
+      "color": "#E0E0E0",
+      "description": "Major supporters who help sustain our innovation ecosystem.",
+      "sponsors": [
+        {
+          "name": "Stock Edge",
+          "logo": "/se.jpeg",
+          "description": "Ethical technology solutions for conscious businesses.",
+          "website": "https://stockedge.com/?srsltid=AfmBOor6htH53WlKsyjp-H6ABhLS83fjSUHni6bcaBLH3DKOAg-Miitq",
+          "tier": "Vishnu Tier"
+        },
+        {
+          "name": ".xyz",
+          "logo": "/xyz.jpeg",
+          "description": "Research-focused development of balanced technologies.",
+          "website": "https://gen.xyz/",
+          "tier": "Vishnu Tier"
+        },
+        {
+          "name": "Interview Buddy",
+          "logo": "/ib.jpeg",
+          "description": "Universal technology solutions with Vedic principles.",
+          "website": "https://interviewbuddy.net/?srsltid=AfmBOoo7f9rt8n_20GIjKc8ILlCkTwDr9diz3VVipVRDb7_gB2QfrRuc",
+          "tier": "Vishnu Tier"
+        },
+        {
+          "name": "Give My Certificate",
+          "logo": "/gmc.jpeg",
+          "description": "Universal technology solutions with Vedic principles.",
+          "website": "https://givemycertificate.com/",
+          "tier": "Vishnu Tier"
+        },
+        {
+          "name": "GeeksforGeeks",
+          "logo": "/gfg.jpeg",
+          "description": "Universal technology solutions with Vedic principles.",
+          "website": "https://www.geeksforgeeks.org/",
+          "tier": "Vishnu Tier"
+        }
+      ]
+    },
+    {
+      "tier": "Shiva Tier",
+      "color": "#CD7F32",
+      "description": "Valued supporters providing essential resources and expertise.",
+      "sponsors": [
+        {
+          "name": "SnapEd",
+          "logo": "/spaned.jpeg",
+          "description": "Cloud solutions with meaning and purpose.",
+          "website": "https://snaped.fns.usda.gov/",
+          "tier": "Shiva Tier"
+        },
+        {
+          "name": "TechLeads",
+          "logo": "/tl.jpeg",
+          "description": "Sustainable and mindful technology innovation.",
+          "website": "https://ashramtech-example.com",
+          "tier": "Shiva Tier"
+        }
+      ]
+    }
+  ]
+  

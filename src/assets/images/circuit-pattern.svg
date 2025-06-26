@@ -1,0 +1,35 @@
+// First, create the directory if it doesn't exist
+// c:\personal\Old_Drive things\projects\hackathon\CODE-VEDA\src\assets\images\
+
+// Then create the SVG files:
+
+// filepath: c:\personal\Old_Drive things\projects\hackathon\CODE-VEDA\src\assets\images\circuit-pattern.svg
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g stroke="#D4AF37" stroke-width="1.5" fill="none" filter="url(#glow)">
+        <path d="M100,100 L300,100 C320,100 320,120 320,140 L320,200 C320,220 300,220 280,220 L100,220" />
+        <path d="M100,300 L200,300 C220,300 220,320 220,340 L220,400 C220,420 240,420 260,420 L400,420" />
+        <path d="M600,100 L400,100 C380,100 380,120 380,140 L380,200 C380,220 400,220 420,220 L600,220" />
+        <path d="M600,300 L500,300 C480,300 480,320 480,340 L480,400 C480,420 460,420 440,420 L300,420" />
+        <path d="M100,500 L300,500 C320,500 320,520 320,540 L320,600 C320,620 300,620 280,620 L100,620" />
+        <path d="M600,500 L400,500 C380,500 380,520 380,540 L380,600 C380,620 400,620 420,620 L600,620" />
+        <circle cx="100" cy="100" r="5" fill="#D4AF37" />
+        <circle cx="600" cy="100" r="5" fill="#D4AF37" />
+        <circle cx="100" cy="300" r="5" fill="#D4AF37" />
+        <circle cx="400" cy="420" r="5" fill="#D4AF37" />
+        <circle cx="600" cy="300" r="5" fill="#D4AF37" />
+        <circle cx="100" cy="500" r="5" fill="#D4AF37" />
+        <circle cx="600" cy="500" r="5" fill="#D4AF37" />
+        <circle cx="100" cy="620" r="5" fill="#D4AF37" />
+        <circle cx="600" cy="620" r="5" fill="#D4AF37" />
+    </g>
+</svg>

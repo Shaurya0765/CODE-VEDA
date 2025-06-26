@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">  <!-- Enhanced glow filter -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <radialGradient id="omGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#f3e9c6" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background aura circle -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#f3e9c6" stroke-width="2" stroke-opacity="0.5" />
+  <!-- Om symbol with gradient and glow -->
+  <text x="50" y="150" font-family="Arial, sans-serif" font-size="150px" fill="url(#omGradient)" filter="url(#glow)">ॐ</text>
+</svg>

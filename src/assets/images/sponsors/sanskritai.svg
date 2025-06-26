@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150">
+  <style>
+    .company-name { font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; fill: #510f77; }
+    .tagline { font-family: Arial, sans-serif; font-size: 14px; fill: #666; }
+    .rect { fill: #fff; stroke: #510f77; stroke-width: 2; }
+    .pattern { fill: #f0e6f5; }
+  </style>
+  <rect class="rect" x="30" y="30" width="240" height="90" rx="15" ry="15" />
+  <path class="pattern" d="M30,30 h240 v90 h-240 z" />
+  <text x="150" y="80" text-anchor="middle" class="company-name">Sanskrit AI</text>
+  <text x="150" y="105" text-anchor="middle" class="tagline">Ancient Language. Modern Intelligence.</text>
+</svg>

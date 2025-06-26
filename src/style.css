@@ -1,0 +1,209 @@
+/* Remove the @import "tailwindcss" line and replace with proper Tailwind directives */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your other custom styles below */
+
+:root {
+  --color-saffron: #3b2e1e; /* Updated to dark brown */
+  --color-white: #FFFFFF;
+  --color-green: #3b2e1e; /* Updated to dark brown */
+  --color-blue: #3b2e1e; /* Updated to dark brown */
+  --color-chakra-blue: #3b2e1e; /* Updated to dark brown */
+  --color-gold: #3b2e1e; /* Updated to dark brown */
+  --color-earth: #3b2e1e; /* Updated to dark brown */
+  
+  /* New theme variables */
+  --primary: #3b2e1e; /* Updated to dark brown */
+  --secondary: #3b2e1e; /* Updated to dark brown */
+  --accent: #3b2e1e; /* Updated to dark brown */
+  --background: #f3e9c6; /* Updated to beige/cream */
+  --text: #3b2e1e; /* Updated to dark brown */
+  --text-light: #5a4631; /* Lighter brown */
+  --mandala-color: rgba(59, 46, 30, 0.5); /* Dark brown with opacity */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #3b2e1e; /* Dark brown text */
+  background-color: #f3e9c6; /* Beige/cream background */
+}
+
+.bg-saffron {
+  background-color: var(--color-saffron);
+}
+
+.text-saffron {
+  color: var(--color-saffron);
+}
+
+.bg-vedic-blue {
+  background-color: var(--color-blue);
+}
+
+.text-vedic-blue {
+  color: var(--color-blue);
+}
+
+.bg-vedic-green {
+  background-color: var(--color-green);
+}
+
+.text-vedic-green {
+  color: var(--color-green);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.section-padding {
+  padding: 5rem 1rem;
+}
+
+.hero-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+}
+
+/* VedicBook Styles */
+.book-container {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  position: relative;
+  perspective: 1500px;
+  margin: 0 auto;
+}
+
+.vedic-book {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.page {
+  background-color: #f7f1e3;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%239C6F44" fill-opacity="0.1"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z"%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  border-radius: 0 3px 3px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading Screen */
+.loading-screen {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+}
+
+.om-symbol {
+  font-size: 5rem;
+  color: var(--primary);
+  animation: pulse 2s infinite;
+}
+
+.loading-text {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+/* Audio Player */
+.audio-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.audio-control:hover {
+  transform: scale(1.1);
+}
+
+.audio-control svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px); /* Adjust as needed */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.scroll-animate {
+  animation: fadeInRight linear;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30%;
+}

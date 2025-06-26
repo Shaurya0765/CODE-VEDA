@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150">
+  <style>
+    .company-name { font-family: Arial, sans-serif; font-size: 32px; font-weight: bold; fill: #144d30; }
+    .tagline { font-family: Arial, sans-serif; font-size: 14px; fill: #666; }
+    .wheel { fill: none; stroke: #144d30; stroke-width: 2; }
+    .spoke { fill: none; stroke: #144d30; stroke-width: 1.5; }
+    .bg { fill: #e6f2ec; }
+  </style>
+  <rect class="bg" x="25" y="25" width="250" height="100" rx="10" ry="10" />
+  <circle class="wheel" cx="75" cy="75" r="30" />
+  <!-- Wheel spokes -->
+  <line class="spoke" x1="75" y1="45" x2="75" y2="105" />
+  <line class="spoke" x1="45" y1="75" x2="105" y2="75" />
+  <line class="spoke" x1="54" y1="54" x2="96" y2="96" />
+  <line class="spoke" x1="96" y1="54" x2="54" y2="96" />
+  <text x="165" y="80" text-anchor="middle" class="company-name">Dharma Tech</text>
+  <text x="165" y="105" text-anchor="middle" class="tagline">Ethical Technology Solutions</text>
+</svg>
