@@ -53,7 +53,7 @@ const Header = () => {
           <Link to="/" className="flex items-center">
            
             <img 
-              src="/public/logo.jpg" 
+              src="/public/logo.jpeg" 
               alt="Code Veda Logo" 
               className="h-14 w-auto mr-4 rounded-md shadow-sm" 
             />
