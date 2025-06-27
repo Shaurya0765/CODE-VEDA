@@ -712,7 +712,7 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <span className="text-2xl">📅</span>
-              <span>October 15-17, 2023</span>
+              <span>September 16-17, 2025</span>
             </motion.div>
             <motion.div 
               className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(244,232,203,0.1)] to-transparent"
