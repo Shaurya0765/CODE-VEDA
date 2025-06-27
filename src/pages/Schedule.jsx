@@ -88,13 +88,7 @@ const Schedule = () => {
 ➤ 7 September - Online Round
 ➤ 8 September - Online round result (Tentative)
 ➤ 16–17 September - Offline round`,
-        timelineVisual: [
-          { date: "20 Aug", event: "Registrations Close", completed: false },
-          { date: "25 Aug", event: "PPT Submission", completed: false },
-          { date: "1 Sep", event: "PPT Results", completed: false },
-          { date: "7 Sep", event: "Online Round", completed: false },
-          { date: "16-17 Sep", event: "Offline Hackathon", completed: false }
-        ]
+       
       },
       {
         title: "Code Of Conduct",
@@ -357,7 +351,7 @@ const Schedule = () => {
                         }}
                         whileHover={{ scale: 1.2 }}
                       >
-                        {bookmarkedItems[index] ? <FaBookmark color="#d4a017" /> : <FaRegBookmark />}
+                       
                       </motion.span>
                     </div>
                   </div>
@@ -437,20 +431,12 @@ const Schedule = () => {
           </div>
           
           <div className="navigation-links">
-            <Link to="/events" className="manuscript-link">
-              <span>All Events</span>
-              <span className="link-decoration">❉</span>
-            </Link>
             <Link to="/prizes" className="manuscript-link">
               <span>Prizes</span>
               <span className="link-decoration">❉</span>
             </Link>
             <Link to="/faq" className="manuscript-link">
               <span>FAQ</span>
-              <span className="link-decoration">❉</span>
-            </Link>
-            <Link to="/bookmarks" className="manuscript-link">
-              <span>My Bookmarks</span>
               <span className="link-decoration">❉</span>
             </Link>
           </div>

@@ -5,9 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 import AnimatedTitle from '../components/AnimatedTitle/AnimatedTitle';
 import OmSymbol from '../assets/images/om-symbol.svg';
 // You may need to create these SVG assets
-import CircuitPattern from '../assets/images/circuit-pattern.svg'; // Create this SVG
-import SanskritScript from '../assets/images/sanskrit-script.svg'; // Create this SVG
-import YantraSymbol from '../assets/images/yantra-symbol.svg'; // Create this SVG
 import VedicSpecialSection from "../components/VedicSpecialSection/VedicSpecialSection.jsx";
 
 const Home = () => {
@@ -651,7 +648,7 @@ const Home = () => {
                 </svg>
               </motion.span>
               
-              <span className="relative z-10">Register Now</span>
+             <a href="https://vision.hack2skill.com/event/codeveda" target='_blank'><span className="relative z-10">Register Now</span></a> 
               
               {/* Radial gradient hover effect */}
               <motion.span 
@@ -737,7 +734,7 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <span className="text-2xl">🏆</span>
-              <span>₹3,00,000 Prize Pool</span>
+              <span>₹6,00,000 Prize Pool</span>
             </motion.div>
           </motion.div>
           
@@ -783,6 +780,7 @@ const Home = () => {
           <h2 className="text-4xl font-bold text-vedic-beige mb-4">Ready to Join the Movement?</h2>
           <p className="text-lg text-vedic-beige text-opacity-80 mb-8">Register now and be part of a revolutionary hackathon experience.</p>
           
+          <a href='https://vision.hack2skill.com/event/codeveda' target='_blank'>
           <motion.button
             className="bg-vedic-beige text-vedic-brown text-lg font-semibold py-3 px-10 rounded cursor-pointer"
             whileHover={{ scale: 1.05 }}
@@ -790,6 +788,7 @@ const Home = () => {
           >
             Register Now
           </motion.button>
+          </a>
         </motion.div>
       </section>
     </div>

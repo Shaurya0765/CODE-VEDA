@@ -74,28 +74,23 @@ const Sponsors = () => {
       </p>
       
       {/* Marquee Section - Made responsive */}
-      <div className='w-full h-auto mt-4 md:mt-6'>
-        <Marquee speed={60} gradient={false} pauseOnHover={false}>
-          {sponsors.map((all, index) => (
-            <div 
-              key={index} 
-              className='h-64 w-56 md:h-80 md:w-64 lg:h-96 lg:w-72 m-2 md:m-3 lg:m-4 bg-[url(/gate.png)] bg-center object-contain p-3 md:p-4 flex flex-col justify-center items-center transition-transform transform hover:scale-105 duration-300 ease-in-out cursor-pointer'
-            >
-              <div className='text-center text-sm md:text-base lg:text-xl my-3 md:my-4 lg:my-5 font-semibold bg-[#3b2e1e] !text-[#f3e9c6] px-2 rounded-xl bg-[url(/om.png)] bg-repeat bg-blend-soft-light bg-cover'>
-                {all.tier}
-              </div>
-              <div className='h-[50%] w-[58%] py-3 md:py-4 lg:py-5 flex flex-col gap-1 md:gap-2'>
-                <div className='h-[70%] w-full rounded-md'>
-                  <img src={all.logo} className='h-full w-full object-contain' alt={all.name} />
-                </div>
-                <div className='h-[30%] w-full text-center font-bold text-xs md:text-sm lg:text-md'>
-                  {all.name}
-                </div>
-              </div>
-            </div>
-          ))}
-        </Marquee>
-      </div>
+     <div className='w-screen h-auto  flex flex-row mt-6 flex-wrap' >
+     <Marquee speed={60} gradient={false} pauseOnHover={false}>
+      
+      {/* Section One  */}
+      {sponsors.map((all,index)=>(
+        <div key={index} className='h-96 w-72  m-4 bg-[url(/gate.png)]  bg-center object-contain p-4 flex flex-col justify-center items-center  transition-transform transform hover:scale-105 duration-300 ease-in-out cursor-pointer' >
+          <div className='text-center  lg:text-xl my-5 font-semibold bg-[#3b2e1e] !text-[#f3e9c6] px-2 rounded-xl bg-[url(/om.png)] bg-repeat bg-blend-soft-light bg-cover'>{all.tier}</div>
+         
+        <div className='h-[50%] w-[58%] py-5 flex flex-col gap-2 '>
+          <div className='h-[70%] w-full  rounded-md'><img src={all.logo} className='h-full w-full object-contain'/></div>
+          <div className='h-[30%] w-full text-center font-bold lg:text-md'>{all.name}</div>
+        </div>
+        </div>
+
+      ))}
+      </Marquee>
+     </div>
 
       {/* Royal Tiers Section */}
       <div className="py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
@@ -334,6 +329,7 @@ const Sponsors = () => {
               
                 <p className="italic text-[#3b2e1e]">
                   Your support helps us deliver meaningful experiences, reach underserved audiences, and drive lasting results. In return, you'll benefit from increased brand visibility, stronger customer loyalty, and the goodwill that comes from supporting a cause that resonates. Together, we can make a real difference — and ensure your brand stands out for all the right reasons.
+                  <button className='text-[#d4af37] mx-2 bg-[#3b2e1e] rounded-xl p-1 animate-bounce mt-1'>Click here</button>
                 </p>
               </div>
             </motion.div>

@@ -99,7 +99,7 @@ You can propose your own track if it aligns with Digital Dharma principles.`
     },
     {
       question: "What if I don't have a team?",
-      answer: "No worries! You can register individually and we'll help match you with other participants during our team formation session. Many great teams are formed this way!"
+      answer: "No worries! Once you register find other candidates on H2S platform and make your team. Many great teams are formed this way!"
     },
     {
       question: "Where can I get updates about the hackathon?",
@@ -160,7 +160,7 @@ You can propose your own track if it aligns with Digital Dharma principles.`
 
       <div className="contact-section">
         <h3>Still have questions?</h3>
-        <p>Reach out to us at <a href="mailto:geekroomadgips@gmail.com">contact@codeveda.com</a></p>
+        <p>Reach out to us at <a href="mailto:geekroomadgips@gmail.com">geekroomadgips@gmail.com</a></p>
         <p>Or connect on our social media channels</p>
       </div>
     </FAQContainer>

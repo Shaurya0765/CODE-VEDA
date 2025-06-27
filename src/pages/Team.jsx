@@ -99,7 +99,8 @@ const Team = () => {
     {/* Profile container */}
     <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[25rem] md:h-[25rem] lg:w-[29rem] lg:h-[29rem] scroll-animate">
   {/* Spinning border layer */}
-  <div className=" absolute inset-0 rounded-full bg-[url(/border.png)] bg-cover bg-center animate-spin-slow"></div>
+ <div className="absolute inset-0 rounded-full bg-[url(/border.png)] bg-cover bg-center animate-spin-slow"></div>
+
 
   {/* Static image on top */}
   <img

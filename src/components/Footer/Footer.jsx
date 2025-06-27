@@ -35,7 +35,7 @@ const Footer = () => {
 
           <div className="link-group">
             <h3>Contact</h3>
-            <a href="mailto:geekroomadgips@gmail.com">contact@codeveda.com</a>
+            <a href="mailto:geekroomadgips@gmail.com">geekroomadgips@gmail.com</a>
             <p>+91 92679 70341</p>
           </div>
         </div>
