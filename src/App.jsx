@@ -30,6 +30,7 @@ import Home from './pages/Home';
 import WhyCodeVeda from './pages/WhyCodeVeda';
 import Schedule from './pages/Schedule';
 import FAQ from "./pages/FAQ";
+import ProblemStatements from './pages/ProblemStatements';
 
 
 // import Events from './pages/Events';
@@ -140,6 +141,17 @@ function App() {
               <Route 
                 path="/faq" 
                 element={<FAQ/>
+                } 
+              />
+              
+              <Route 
+                path="/problem-statements" 
+                element={
+                  <HomeWrapper 
+                    hasEntered={hasEntered} 
+                    setHasEntered={setHasEntered} 
+                    HomeComponent={ProblemStatements}
+                  />
                 } 
               />
               

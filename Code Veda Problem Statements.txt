@@ -1,0 +1,76 @@
+CODE VEDA PROBLEM STATEMENTS 
+Code for Karma – For a Healthier, More Humane Digital World 
+Problem Statement: 
+In a world increasingly shaped by algorithms and attention-driven design, technology is evolving 
+faster than our ability to consciously adapt to it. Social media, recommendation engines, and 
+digital platforms often prioritize engagement over well-being, leading to rising concerns about 
+digital addiction, declining mental health, and loss of agency. Additionally, users are 
+frequently left in the dark about how their data is used, how algorithms make decisions, or how 
+to regain control of their digital lives. 
+We challenge you to build solutions that promote digital well-being, ethical tech practices, and 
+mindful tech use. Can you create systems that make users more aware of their online behavior, 
+encourage healthier screen time habits, promote transparency in AI and algorithms, and hold 
+digital products accountable for the impact they have? How might we re-engineer the internet to 
+work for human flourishing, not just profit and performance metrics? 
+�
+� Healthcare – Making Quality Healthcare Accessible for All 
+Problem Statement: 
+Millions of people across the globe still lack access to timely, affordable, and quality healthcare. 
+From poor infrastructure and lack of specialists in rural areas to data fragmentation and 
+misdiagnosis in urban centers, the challenges in healthcare are vast and varied. Meanwhile, the 
+need for solutions that can address mental health, chronic conditions, early detection, elderly 
+care, and preventive health continues to grow. 
+How can we use technology to bridge this gap? Can you design systems that enable remote 
+diagnosis, real-time patient monitoring, or community health awareness? Can tech become a 
+frontline responder in underserved areas and a smart assistant in advanced ones? 
+�
+� AR/VR (Augmented & Virtual Reality) – Designing Immersive Experiences 
+with Purpose 
+Problem Statement: 
+While AR and VR technologies offer immersive storytelling and real-time simulations, their 
+real-world applications are still underexplored. What if AR/VR could help doctors train better, 
+students learn deeper, or workers operate with more precision? What if virtual environments 
+could offer safe spaces for therapy, collaboration, or exposure to inaccessible worlds? 
+We invite you to imagine immersive technologies not just as entertainment tools but as engines 
+for education, inclusion, training, and social good. How can AR/VR reshape the way we learn, 
+heal, connect, and solve real-life problems? 
+�
+� App Development – Building the Apps That Shape the Future 
+Problem Statement: 
+Applications are the heart of our digital lives—but not all apps are built equally. The world 
+doesn’t need more clones or empty tools. It needs applications that solve real problems, empower 
+underserved communities, and enhance everyday life in meaningful ways. 
+Can you create an app that brings utility, joy, or equity? Whether it’s for productivity, 
+education, finance, accessibility, or local community engagement—your challenge is to design a 
+solution that is intuitive, impactful, and responsible. Think big. Think bold. Think useful. 
+�
+� Sustainable Development – Innovating for a Greener, Fairer Planet 
+Problem Statement: 
+As climate change accelerates and natural resources dwindle, sustainability is no longer 
+optional—it’s urgent. From energy consumption and waste management to food systems and 
+urban design, the world faces the challenge of aligning growth with ecological balance. 
+Your mission: Build for a sustainable future. Can your solution reduce carbon footprints, 
+encourage circular economies, improve conservation, or make eco-friendly habits more 
+accessible to the average person? The planet needs problem-solvers. Be one. 
+Internet of Things (IoT) – Connecting Devices to Empower People 
+Problem Statement: 
+From smart homes to connected cities, IoT is revolutionizing how we interact with our 
+environments. But there’s still a long way to go in making these systems interoperable, secure, 
+and genuinely helpful. Many IoT solutions fail to address privacy, accessibility, or contextual 
+intelligence. 
+How can we create IoT systems that solve real problems—not just gimmicks? Whether it’s in 
+agriculture, health, mobility, or energy—can your solution help us sense better, act smarter, 
+and live easier? 
+Open Innovation – The Wild Card Track 
+Problem Statement: 
+Have an idea that doesn’t quite fit into any category? Great. Innovation doesn’t need permission. 
+This is your space to think outside the box—whether it’s a tool for creative minds, an AI model 
+that learns differently, a civic tech platform, or something no one has imagined yet. 
+If you believe your idea can make an impact—build it. Push boundaries. Solve problems that 
+others overlook. Or better yet, identify a problem no one has dared to solve. 
+✨ Final Note: The Hack Is Open to Your Ideas 
+No matter what path you choose—whether you're hacking for impact, ethics, creativity, or fun—
+ this is your playground. Think freely. Build courageously. Your idea could be the one that 
+sparks real change. 
+So go ahead—craft whatever you want. 
+Further Track Sponsors will also be Released Soon!
