@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
+import { FaCalendarAlt, FaMapMarkerAlt, FaTrophy } from 'react-icons/fa';
 import AnimatedTitle from '../components/AnimatedTitle/AnimatedTitle';
 import OmSymbol from '../assets/images/om-symbol.svg';
 // You may need to create these SVG assets
@@ -711,7 +712,7 @@ const Home = () => {
               }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <span className="text-2xl">📅</span>
+              <FaCalendarAlt className="text-xl text-vedic-beige" />
               <span>September 16-17, 2025</span>
             </motion.div>
             <motion.div 
@@ -722,7 +723,7 @@ const Home = () => {
               }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <span className="text-2xl">📍</span>
+              <FaMapMarkerAlt className="text-xl text-vedic-beige" />
               <span>Virtual & In-Person</span>
             </motion.div>
             <motion.div 
@@ -733,7 +734,7 @@ const Home = () => {
               }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <span className="text-2xl">🏆</span>
+              <FaTrophy className="text-xl text-vedic-beige" />
               <span>₹6,00,000 Prize Pool</span>
             </motion.div>
           </motion.div>

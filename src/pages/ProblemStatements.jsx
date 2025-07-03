@@ -73,16 +73,6 @@ const ProblemStatements = () => {
       description: `From smart homes to connected cities, IoT is revolutionizing how we interact with our environments. But there's still a long way to go in making these systems interoperable, secure, and genuinely helpful. Many IoT solutions fail to address privacy, accessibility, or contextual intelligence.`,
       challenge: `How can we create IoT systems that solve real problems—not just gimmicks? Whether it's in agriculture, health, mobility, or energy—can your solution help us sense better, act smarter, and live easier?`,
       keywords: ['Smart Cities', 'Connected Devices', 'Sensor Networks', 'IoT Security', 'Edge Computing']
-    },
-    {
-      id: 'open-innovation',
-      title: 'Open Innovation',
-      subtitle: 'The Wild Card Track',
-      icon: <FaLightbulb />,
-      color: '#E67E22',
-      description: `Have an idea that doesn't quite fit into any category? Great. Innovation doesn't need permission. This is your space to think outside the box—whether it's a tool for creative minds, an AI model that learns differently, a civic tech platform, or something no one has imagined yet.`,
-      challenge: `If you believe your idea can make an impact—build it. Push boundaries. Solve problems that others overlook. Or better yet, identify a problem no one has dared to solve.`,
-      keywords: ['Creative Innovation', 'Disruptive Technology', 'Experimental Tech', 'Civic Technology', 'Future Tech']
     }
   ];
 
