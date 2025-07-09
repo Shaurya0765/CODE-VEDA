@@ -62,7 +62,7 @@ const Team = () => {
     {
        name: 'Chetan Kumar',
       role: 'Agni Neta (Marketing Lead of the Digital Frontier)',
-      image: '/cm.png',
+      image: '/chetan.jpeg',
       bio: 'Weaves powerful narratives across platforms — crafting campaigns, building communities, and lighting the flame of engagement in the digital universe.',
       social: {
         linkedin: 'https://www.linkedin.com/in/chetan-kumar-12922a322',
