@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaCode, FaHeart, FaVrCardboard, FaMobile, FaLeaf, FaNetworkWired, FaLightbulb, FaChevronLeft, FaChevronRight, FaSearch } from 'react-icons/fa';
+import { FaCode, FaHeart, FaVrCardboard, FaMobile, FaLeaf, FaNetworkWired, FaLightbulb, FaChevronLeft, FaChevronRight, FaSearch, FaFilePdf, FaDownload } from 'react-icons/fa';
 import { GiScrollQuill } from 'react-icons/gi';
 
 const ProblemStatements = () => {
@@ -95,6 +95,15 @@ const ProblemStatements = () => {
 
   const prevTrack = () => {
     setActiveTrack((prev) => (prev - 1 + filteredTracks.length) % filteredTracks.length);
+  };
+
+  const handleDownloadPDF = () => {
+    const link = document.createElement('a');
+    link.href = '/Guidelines For PPT Submission (1).pdf';
+    link.download = 'Guidelines_For_PPT_Submission.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -299,6 +308,47 @@ const ProblemStatements = () => {
           </div>
         )}
       </div>
+
+      {/* PPT Guidelines Section */}
+      <motion.div 
+        className="guidelines-section"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <div className="guidelines-card">
+          <div className="guidelines-header">
+            <div className="guidelines-icon">
+              <FaFilePdf />
+            </div>
+            <div className="guidelines-title">
+              <h3>Guidelines for PPT Submission</h3>
+              <p>Essential information for your presentation</p>
+            </div>
+          </div>
+          
+          <div className="guidelines-content">
+            <p>
+              Download the comprehensive guidelines for PPT submission including format requirements, 
+              content structure, evaluation criteria, and submission deadlines. This document contains 
+              all the essential information you need to prepare your presentation effectively.
+            </p>
+            <p>
+              We’re not just looking at your PPT – your <span className='font-semibold'> GitHub </span> contributions and <span className='font-semibold' > LinkedIn </span> profile will also play a vital role in our judging process. So, polish them up and let your work speak for itself!
+            </p>
+          </div>
+          
+          <motion.button 
+            className="download-button"
+            onClick={handleDownloadPDF}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <FaDownload />
+            Download PDF Guidelines
+          </motion.button>
+        </div>
+      </motion.div>
 
       {/* Call to Action */}
       <motion.div 
@@ -789,6 +839,132 @@ const ProblemStatementsContainer = styled.div`
     }
   }
 
+  /* Guidelines Section */
+  .guidelines-section {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+    padding: 0 1rem;
+
+    .guidelines-card {
+      background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc6 100%);
+      border: 2px solid #D4AF37;
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+        animation: float 8s ease-in-out infinite;
+        z-index: 1;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(180deg); }
+      }
+
+      > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .guidelines-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        gap: 1.5rem;
+
+        .guidelines-icon {
+          width: 60px;
+          height: 60px;
+          background: linear-gradient(135deg, #D4AF37 0%, #E6D195 100%);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+          
+          svg {
+            width: 28px;
+            height: 28px;
+            color: #4a3520;
+          }
+        }
+
+        .guidelines-title {
+          flex: 1;
+
+          h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4a3520;
+            margin: 0 0 0.5rem 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+
+          p {
+            font-size: 1rem;
+            color: #6c5b40;
+            margin: 0;
+            font-style: italic;
+          }
+        }
+      }
+
+      .guidelines-content {
+        color: #5d4e37;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        text-align: justify;
+      }
+
+      .download-button {
+        background: linear-gradient(135deg, #D4AF37 0%, #E6D195 100%);
+        color: #4a3520;
+        border: none;
+        border-radius: 12px;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        margin: 0 auto;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+          background: linear-gradient(135deg, #E6D195 0%, #D4AF37 100%);
+        }
+
+        &:active {
+          transform: translateY(-1px);
+        }
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+
   /* Responsive Design */
   @media (max-width: 768px) {
     padding: 5rem 1rem 3rem;
@@ -869,6 +1045,55 @@ const ProblemStatementsContainer = styled.div`
         font-size: 1rem;
       }
     }
+
+    .guidelines-section {
+      margin: 3rem 0;
+      padding: 0 0.5rem;
+
+      .guidelines-card {
+        padding: 2rem;
+
+        .guidelines-header {
+          gap: 1rem;
+
+          .guidelines-icon {
+            width: 50px;
+            height: 50px;
+
+            svg {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          .guidelines-title {
+            h3 {
+              font-size: 1.5rem;
+            }
+
+            p {
+              font-size: 0.9rem;
+            }
+          }
+        }
+
+        .guidelines-content {
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .download-button {
+          padding: 0.8rem 1.5rem;
+          font-size: 1rem;
+          gap: 0.6rem;
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
   }
 
   @media (max-width: 480px) {
@@ -881,6 +1106,29 @@ const ProblemStatementsContainer = styled.div`
     .content-area {
       .navigation-arrows {
         display: none;
+      }
+    }
+
+    .guidelines-section {
+      .guidelines-card {
+        padding: 1.5rem;
+
+        .guidelines-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+
+          .guidelines-title {
+            h3 {
+              font-size: 1.3rem;
+            }
+          }
+        }
+
+        .guidelines-content {
+          font-size: 0.95rem;
+          text-align: center;
+        }
       }
     }
   }
