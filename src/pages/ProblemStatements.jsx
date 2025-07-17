@@ -334,7 +334,7 @@ const ProblemStatements = () => {
               all the essential information you need to prepare your presentation effectively.
             </p>
             <p>
-              We’re not just looking at your PPT – your <span className='font-semibold'> GitHub </span> contributions and <span className='font-semibold' > LinkedIn </span> profile will also play a vital role in our judging process. So, polish them up and let your work speak for itself!
+              We’re not just looking at your PPT your <span className='font-semibold'> GitHub </span> contributions and <span className='font-semibold' > LinkedIn </span> profile will also play a vital role in our judging process. So, polish them up and let your work speak for itself!
             </p>
           </div>
           
