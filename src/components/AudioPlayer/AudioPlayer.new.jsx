@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useAudioContext } from '../../context/AudioContext';
 import { FaPlay, FaPause } from 'react-icons/fa';
@@ -6,46 +6,41 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const AudioPlayer = () => {
   const { isPlaying, toggleAudio } = useAudioContext();
-  const [animating, setAnimating] = useState(false);
-  const lastClickTime = useRef(0);
-  
-  // On mount, check if we should be playing
+  // This state now controls both the animation and the disabled state of the button.
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  // On mount, check if audio should be playing from a previous session.
   useEffect(() => {
     const audioState = sessionStorage.getItem('audioPlaying');
     const hasEntered = sessionStorage.getItem('hasEntered');
     
-    console.log('AudioPlayer mounted, audio should be:', audioState, 'current state:', isPlaying);
-    
+    // Condition to auto-play: user has entered the site, session state says play, and it's not already playing.
     if (hasEntered === 'true' && audioState === 'true' && !isPlaying) {
-      console.log('Starting audio from AudioPlayer mount');
-      setTimeout(() => {
-        toggleAudio();
-      }, 1000);
+      // Use a short timeout to ensure the audio context is ready.
+      const timer = setTimeout(() => {
+        // Double-check the state right before toggling to avoid race conditions.
+        if (!isPlaying) {
+          toggleAudio();
+        }
+      }, 500); // Reduced timeout
+      
+      // Cleanup function to clear the timeout if the component unmounts.
+      return () => clearTimeout(timer);
     }
-  }, []);
+  }, []); // isPlaying and toggleAudio are stable and can be omitted from deps if guaranteed by context provider.
 
-  // Handle button click with debounce
+  // Simplified and more reliable click handler.
   const handleButtonClick = () => {
-    // Prevent rapid clicks
-    const now = Date.now();
-    if (now - lastClickTime.current < 800) {
-      console.log("Click ignored (too soon)");
-      return;
-    }
-    
-    lastClickTime.current = now;
-    console.log("Audio button clicked, current state:", isPlaying);
+    // If a toggle is already in progress, do nothing.
+    if (isProcessing) return;
 
-    // Visual feedback
-    setAnimating(true);
-    
-    // Toggle audio
+    setIsProcessing(true);
     toggleAudio();
-    
-    // Reset animation state
+
+    // Reset the processing state after a short delay to allow animations to complete.
     setTimeout(() => {
-      setAnimating(false);
-    }, 300);
+      setIsProcessing(false);
+    }, 400); // A shorter, more responsive delay.
   };
 
   return (
@@ -54,8 +49,7 @@ const AudioPlayer = () => {
         <motion.button 
           className="toggle-btn"
           onClick={handleButtonClick}
-          whileTap={{ scale: 0.9 }}
-          whileHover={{ scale: 1.1 }}
+        
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -65,7 +59,7 @@ const AudioPlayer = () => {
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.15 }}
             >
-              {isPlaying ? <FaPause /> : <FaPlay style={{ marginLeft: "2px" }} />}
+              {isPlaying ? <FaPause /> : <FaPlay />}
             </motion.div>
           </AnimatePresence>
         </motion.button>
@@ -79,6 +73,7 @@ const AudioPlayer = () => {
   );
 };
 
+// ... (The styled-components code remains the same)
 const ButtonWrapper = styled.div`
   position: relative;
   margin-right: 12px;
@@ -315,5 +310,4 @@ const AudioPlayerContainer = styled.div`
     }
   }
 `;
-
 export default AudioPlayer;

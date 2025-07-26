@@ -66,7 +66,7 @@ const Schedule = () => {
         description: `• Team Size: 2–4 Members 
         • Eligibility: Open to all Tech Enthusiast Students 
         • Mode: Hybrid (Online and Offline)
-        • Final Round Venue: Masters' Union`,
+        • Final Round Venue: Microsoft,Gurugram`,
         subItems: [
           {
             title: "Participation Benefits",
@@ -85,9 +85,9 @@ const Schedule = () => {
         description: `➤ 20 August - Registration closes
 ➤ 15 July–25 August - PPT submission
 ➤ 1 September - PPT round result
-➤ 7 September - Online Round
-➤ 8 September - Online round result (Tentative)
-➤ 16–17 September - Offline round`,
+➤ 6 September - Online round
+➤ 7 September - Online round result
+➤ 13 September - Offline round`,
        
       },
       {
@@ -160,10 +160,10 @@ const Schedule = () => {
         title: "Phase 3: Online Round",
         icon: "💻",
         highlight: true,
-        description: `➤ Online round will be conducted on 7th September 2025
+        description: `➤ Online round will be conducted on 6th September 2025
 ➤ Shortlisted teams from the PPT round will move to the online round
-➤ Results of this round will be declared next day, i.e. on 8th September 2025`,
-        time: "7 Sep",
+➤ Results of this round will be declared next day, i.e. on 7th September 2025`,
+        time: "6 Sep",
         subItems: [
           {
             title: "Evaluation Criteria",
@@ -204,9 +204,9 @@ const Schedule = () => {
         title: "Phase 4: Offline Round",
         icon: <GiIndiaGate />,
         highlight: true,
-        description: `➤ Offline round will be conducted on 16th-17th September 2025 at Masters' Union
-➤ It will be a 24 hours high energy hackathon`,
-        time: "16-17 Sep",
+        description: `➤ Offline round will be conducted on 13th September 2025 at Microsoft, Gurugram
+➤ It will be a 8 hours high energy hackathon`,
+        time: "13 Sep",
         subItems: [
           {
             title: "What to Bring",
@@ -218,7 +218,7 @@ const Schedule = () => {
           }
         ]
       },
-      {
+    /*    {
         title: "Detailed Schedule",
         icon: <BsClock />,
         highlight: true,
@@ -249,13 +249,13 @@ const Schedule = () => {
 - 3:00 PM: Judging
 - 5:00 PM: Closing Ceremony`,
             icon: "⏱️"
-          }
-        ]
       }
+       ]
+      } */
     ]
   };
 
-  const currentData = searchTerm ? filteredData : scheduleData[activeDay];
+ const currentData = searchTerm ? filteredData : scheduleData[activeDay];
 
   return (
     <AncientManuscriptContainer>

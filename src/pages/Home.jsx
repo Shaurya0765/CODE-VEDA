@@ -713,7 +713,7 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <FaCalendarAlt className="text-xl text-vedic-beige" />
-              <span>September 16-17, 2025</span>
+              <span>September 13, 2025</span>
             </motion.div>
             <motion.div 
               className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(244,232,203,0.1)] to-transparent"
@@ -724,7 +724,7 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <FaMapMarkerAlt className="text-xl text-vedic-beige" />
-              <span>Virtual & In-Person</span>
+              <span>Microsoft, Gurugram</span>
             </motion.div>
             <motion.div 
               className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(244,232,203,0.1)] to-transparent"
@@ -735,7 +735,7 @@ const Home = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <FaTrophy className="text-xl text-vedic-beige" />
-              <span>₹6,00,000 Prize Pool</span>
+              <span>₹5,00,000 Prize Pool</span>
             </motion.div>
           </motion.div>
           
