@@ -163,34 +163,6 @@ body {
   }
 }
 
-/* Audio Player */
-.audio-control {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.audio-control:hover {
-  transform: scale(1.1);
-}
-
-.audio-control svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-}
-
 @keyframes fadeInRight {
   from {
     opacity: 0;

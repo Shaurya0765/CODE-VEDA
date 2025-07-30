@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import { AudioProvider } from './context/AudioContext';
 import Header from './components/Header/Header.jsx'; // Add the .jsx extension
 
 // Wrapper component to handle navigation state
@@ -23,7 +22,6 @@ const HomeWrapper = ({ hasEntered, setHasEntered, HomeComponent }) => {
   return <HomeComponent />;
 };
 import Footer from './components/Footer/Footer';
-import AudioPlayer from './components/AudioPlayer';
 import Head from './components/Head';
 import LoadingPage from './components/LoadingPage/LoadingPage';
 import Home from './pages/Home';
@@ -45,7 +43,7 @@ function App() {
   // Function to update hasEntered state
   const updateHasEntered = () => {
     setHasEntered(true);
-  };// Check if user has already entered the site
+  };
   useEffect(() => {
     const checkEntryStatus = () => {
       const enteredBefore = sessionStorage.getItem('hasEntered');
@@ -79,7 +77,6 @@ function App() {
       'hero-bg.jpg',
       'logo.png',
       'chakra.svg',
-      // Add more image paths as needed
     ];
     
     preloadImages.forEach(image => {
@@ -89,12 +86,11 @@ function App() {
   }, []);
 
   return (
-    <AudioProvider>
-      <Router>
-        <Head />
-        <GlobalStyles />
-        
-        {/* Only show header and footer if user has entered the site */}        {hasEntered && <Header />}
+    <Router>
+      <Head />
+      <GlobalStyles />
+      
+      {/* Only show header and footer if user has entered the site */}        {hasEntered && <Header />}
         
         <main>
           <AnimatePresence mode="wait">
@@ -201,10 +197,8 @@ function App() {
           </AnimatePresence>
         </main>
           {hasEntered && <Footer />}
-        <AudioPlayer />
       </Router>
-    </AudioProvider>
-  );
-}
+    );
+  }
 
 export default App;

@@ -3,12 +3,10 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import './LoadingPage.css';
 import chakraImage from '../../assets/images/chakra.svg'; // You'll need to add this image
-import { useAudioContext } from '../../context/AudioContext';
 
 const LoadingPage = ({ onEnter }) => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const { toggleAudio } = useAudioContext();
   
   // Simulate initial loading
   useEffect(() => {
@@ -20,17 +18,6 @@ const LoadingPage = ({ onEnter }) => {
   }, []);  const handleEnter = () => {
     // Store in session that user has entered the site
     sessionStorage.setItem('hasEntered', 'true');
-    
-    // Set audio to play by default
-    sessionStorage.setItem('audioPlaying', 'true');
-    
-    // Force the audio to play
-    console.log("User entering site, attempting to start audio");
-    try {
-      toggleAudio();
-    } catch (err) {
-      console.error("Error toggling audio in handleEnter:", err);
-    }
     
     // Call the provided onEnter function to update App state
     if (onEnter && typeof onEnter === 'function') {

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import mandalaPattern from '../assets/images/mandala-pattern.svg';
 import omSymbol from '../assets/images/om-symbol.svg';
 import sacredGeometry from '../assets/images/sacred-geometry.svg';
-import { useAudioContext } from '../context/AudioContext';
 
 const WhyCodeVeda = () => {
   // Animation variants
