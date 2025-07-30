@@ -10,9 +10,17 @@
           "description": "Leading AI and machine learning solutions for modern businesses.",
           "website": "https://www.pw.live/",
           "tier": "Brahma Tier"
+        },
+        {
+          "name": "Event Partner",
+          "logo": "/Gen.jpg",
+          "description": "Leading AI and machine learning solutions for modern businesses.",
+          "website": "",
+          "tier": "Brahma Tier"
         }
       ]
     },
+    
     {
       "tier": "Vishnu Tier",
       "color": "#E0E0E0",
