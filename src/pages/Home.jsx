@@ -22,13 +22,6 @@ const Home = () => {
   const backgroundY = useTransform(scrollY, [0, 500], [0, -30]);
   const opacityTransform = useTransform(scrollY, [0, 300], [1, 0]);
   
-  // Mouse position for parallax effects
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
-  // Transform values for mouse-based parallax (only used for mandala patterns)
-  const mandalaParallaxX = useTransform(() => mousePosition.x * -40, (x) => x);
-  const mandalaParallaxY = useTransform(() => mousePosition.y * -40, (y) => y);
-  
   // Initialize window height for responsive animations
   useEffect(() => {
     setWindowHeight(window.innerHeight);
@@ -37,15 +30,7 @@ const Home = () => {
       setWindowHeight(window.innerHeight);
     };
     
-    const handleMouseMove = (e) => {
-      // Calculate mouse position as percentage of screen
-      const x = (e.clientX / window.innerWidth) - 0.5;
-      const y = (e.clientY / window.innerHeight) - 0.5;
-      setMousePosition({ x, y });
-    };
-    
     window.addEventListener('resize', handleResize);
-    window.addEventListener('mousemove', handleMouseMove);
     
     // Start the sequence animation
     const startAnimation = async () => {
@@ -57,7 +42,6 @@ const Home = () => {
     
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [controls]);
   
@@ -110,15 +94,15 @@ const Home = () => {
         y: y, // position within the determined quadrant
         size: size, // variable size for depth
         rotation: Math.random() * 40 - 20, // rotation (-20 to 20 degrees)
-        duration: Math.random() * 10 + 8, // shorter animation durations (8-18s) for more noticeable movement
-        delay: Math.random() * 5,
+        duration: Math.random() * 8 + 6, // Moderate animation durations (6-14s) for visible but meditative movement
+        delay: Math.random() * 5, // Staggered start times
         // Add unique properties for each Om symbol
-        pulseStrength: Math.random() * 0.3 + 0.9, // How much it pulses (0.9-1.2)
-        glowIntensity: Math.random() * 0.5 + 0.3, // Glow intensity variance (0.3-0.8)
-        floatDistance: Math.random() * 20 + 10, // How far it floats (10-30px)
+        pulseStrength: Math.random() * 0.4 + 1.0, // How much it pulses (1.0-1.4) - more noticeable
+        glowIntensity: Math.random() * 0.6 + 0.4, // Glow intensity variance (0.4-1.0) - brighter glow
+        floatDistance: Math.random() * 30 + 15, // How far it floats (15-45px) - more movement
         // Additional movement paths for more complex animations
-        pathRadius: Math.random() * 15 + 5, // Smaller radius of movement path (5-20px)
-        pathSpeed: Math.random() * 10 + 5, // Slower speed of path movement
+        pathRadius: Math.random() * 25 + 10, // Larger radius of movement path (10-35px) - more visible floating
+        pathSpeed: Math.random() * 8 + 6, // Moderate speed of path movement
       });
     }
     setOmSymbols(newOmSymbols);
@@ -221,8 +205,94 @@ const Home = () => {
     <div className="w-full">
       <section 
         ref={heroRef}
-        className="h-screen flex items-center justify-center relative overflow-hidden bg-vedic-brown"
+        className="h-screen flex items-center justify-center relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #3b2e1e 0%, #2c1810 50%, #3b2e1e 100%)'
+        }}
       >
+        {/* Starfield Background Animation */}
+        <div className="absolute inset-0 overflow-hidden">
+          {Array.from({ length: 100 }).map((_, i) => (
+            <motion.div
+              key={`star-${i}`}
+              className="absolute bg-white rounded-full"
+              style={{
+                width: Math.random() * 3 + 1 + 'px',
+                height: Math.random() * 3 + 1 + 'px',
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%',
+                opacity: Math.random() * 0.8 + 0.2,
+              }}
+              animate={{
+                opacity: [0.2, 1, 0.2],
+                scale: [1, 1.3, 1],
+              }}
+              transition={{
+                duration: Math.random() * 4 + 3,
+                repeat: Infinity,
+                delay: Math.random() * 8,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Cosmic Nebula Background */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background: `radial-gradient(ellipse at 20% 30%, 
+              rgba(59, 46, 30, 0.15) 0%, 
+              transparent 50%), 
+            radial-gradient(ellipse at 80% 70%, 
+              rgba(90, 70, 49, 0.12) 0%, 
+              transparent 50%),
+            radial-gradient(ellipse at 50% 50%, 
+              rgba(212, 175, 55, 0.08) 0%, 
+              transparent 70%)`,
+          }}
+          animate={{
+            opacity: [0.3, 0.6, 0.3],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        {/* Ancient Sanskrit Matrix Rain Effect */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <motion.div
+              key={`matrix-${i}`}
+              className="absolute font-mono text-sm opacity-30"
+              style={{
+                left: `${(i * 5) + Math.random() * 5}%`,
+                fontSize: `${Math.random() * 8 + 10}px`,
+                color: 'rgba(212, 175, 55, 0.6)',
+              }}
+              initial={{ y: -100, opacity: 0 }}
+              animate={{
+                y: window.innerHeight + 100,
+                opacity: [0, 0.6, 0],
+              }}
+              transition={{
+                duration: Math.random() * 6 + 10,
+                repeat: Infinity,
+                delay: Math.random() * 15,
+                ease: "linear"
+              }}
+            >
+              {/* Mix of Sanskrit characters and tech symbols */}
+              {i % 4 === 0 ? "ॐ नमः शिवाय" : 
+               i % 4 === 1 ? "01010011 ॐ" :
+               i % 4 === 2 ? "वेद = {code}" :
+               "धर्म.map()"}
+            </motion.div>
+          ))}
+        </div>
+
         {/* Tech circuit animations - creates glowing circuit traces */}
         {circuits.map((circuit) => (
           <motion.div
@@ -242,7 +312,7 @@ const Home = () => {
                    Q${50 + Math.random() * 20},${Math.random() * 20} ${80 + Math.random() * 10},${20 + Math.random() * 10} 
                    T${80 + Math.random() * 10},${80 + Math.random() * 10}
                    Q${50 - Math.random() * 20},${100 - Math.random() * 20} ${20 + Math.random() * 10},${80 - Math.random() * 10}`}
-                stroke={circuit.color}
+                stroke={circuit.id % 3 === 0 ? '#D4AF37' : circuit.id % 3 === 1 ? '#F59E0B' : '#FBBF24'}
                 strokeWidth="1"
                 fill="transparent"
                 initial={{ pathLength: 0, opacity: 0 }}
@@ -274,14 +344,14 @@ const Home = () => {
                 }}
                 style={{ 
                   strokeDasharray: "5,5",
-                  filter: `drop-shadow(0 0 2px ${circuit.color})`
+                  filter: `drop-shadow(0 0 4px ${circuit.id % 3 === 0 ? '#D4AF37' : circuit.id % 3 === 1 ? '#F59E0B' : '#FBBF24'})`
                 }}
               />
               <motion.circle 
                 cx={25 + Math.random() * 50} 
                 cy={25 + Math.random() * 50} 
                 r={2 + Math.random() * 3}
-                fill={circuit.color}
+                fill={circuit.id % 3 === 0 ? '#D4AF37' : circuit.id % 3 === 1 ? '#F59E0B' : '#FBBF24'}
                 initial={{ opacity: 0 }}
                 animate={{ 
                   opacity: [0, 0.8, 0],
@@ -294,7 +364,7 @@ const Home = () => {
                   repeatDelay: circuit.duration / 2
                 }}
                 style={{
-                  filter: `drop-shadow(0 0 3px ${circuit.color})`
+                  filter: `drop-shadow(0 0 6px ${circuit.id % 3 === 0 ? '#D4AF37' : circuit.id % 3 === 1 ? '#F59E0B' : '#FBBF24'})`
                 }}
               />
             </svg>
@@ -324,18 +394,18 @@ const Home = () => {
               className="w-full h-full flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ 
-                opacity: [line.opacity, line.opacity * 1.3, line.opacity],
-                x: [0, 10, 0]
+                opacity: [line.opacity, line.opacity * 1.2, line.opacity],
+                x: [0, 6, 0]
               }}
               transition={{
-                duration: 10 + line.id * 3,
+                duration: 15 + line.id * 4,
                 repeat: Infinity,
                 delay: line.delay,
                 ease: "easeInOut"
               }}
             >
               {/* Sanskrit-inspired characters - use web-safe characters that resemble devanagari */}
-              <div className="text-vedic-beige text-opacity-40 text-sm tracking-widest whitespace-nowrap">
+              <div className="text-white text-opacity-20 text-sm tracking-widest whitespace-nowrap">
                 ॐ नमः शिवाय ॐ सत्यम् शिवम् सुंदरम् ॐ तत् सत् ॐ शांतिः शांतिः शांतिः
               </div>
             </motion.div>
@@ -349,19 +419,19 @@ const Home = () => {
         >
           {/* Sacred geometry outer circle */}
           <motion.div 
-            className="absolute top-1/2 left-1/2 w-[120vh] h-[120vh] border-2 border-vedic-beige rounded-full"
+            className="absolute top-1/2 left-1/2 w-[120vh] h-[120vh] border-2 rounded-full"
             style={{
               x: "-50%",
               y: "-50%",
-              borderColor: "rgba(244, 232, 203, 0.3)"
+              borderColor: "rgba(212, 175, 55, 0.3)"
             }}
             animate={{ 
               rotate: 360,
-              scale: [1, 1.02, 0.98, 1]
+              scale: [1, 1.01, 0.99, 1]
             }}
             transition={{
-              rotate: { duration: 120, repeat: Infinity, ease: "linear" },
-              scale: { duration: 15, repeat: Infinity, ease: "easeInOut" }
+              rotate: { duration: 150, repeat: Infinity, ease: "linear" },
+              scale: { duration: 20, repeat: Infinity, ease: "easeInOut" }
             }}
           />
           
@@ -371,12 +441,12 @@ const Home = () => {
             style={{ 
               x: "-50%", 
               y: "-50%",
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='rgba(244, 232, 203, 0.15)' stroke-width='0.7' d='M30 10L55 10M10 30L10 55M30 90L55 90M90 30L90 55M30 10L10 30M55 10L90 30M10 55L30 90M90 55L55 90'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='rgba(212, 175, 55, 0.15)' stroke-width='0.7' d='M30 10L55 10M10 30L10 55M30 90L55 90M90 30L90 55M30 10L10 30M55 10L90 30M10 55L30 90M90 55L55 90'/%3E%3C/svg%3E")`,
               backgroundRepeat: "repeat",
               backgroundSize: "50px 50px"
             }}
             animate={{ rotate: -360 }}
-            transition={{ duration: 180, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 220, repeat: Infinity, ease: "linear" }}
           />
           
           {/* Sri Yantra geometric figure - central sacred geometry */}
@@ -385,18 +455,18 @@ const Home = () => {
             style={{ 
               x: "-50%", 
               y: "-50%",
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpolygon fill='none' stroke='rgba(244, 232, 203, 0.2)' points='50,5 95,90 5,90' /%3E%3Cpolygon fill='none' stroke='rgba(244, 232, 203, 0.2)' points='50,15 85,85 15,85' /%3E%3Cpolygon fill='none' stroke='rgba(244, 232, 203, 0.2)' points='50,25 75,80 25,80' /%3E%3Ccircle fill='none' stroke='rgba(244, 232, 203, 0.3)' cx='50' cy='50' r='30' /%3E%3Ccircle fill='rgba(244, 232, 203, 0.1)' cx='50' cy='50' r='5' /%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpolygon fill='none' stroke='rgba(212, 175, 55, 0.2)' points='50,5 95,90 5,90' /%3E%3Cpolygon fill='none' stroke='rgba(212, 175, 55, 0.2)' points='50,15 85,85 15,85' /%3E%3Cpolygon fill='none' stroke='rgba(212, 175, 55, 0.2)' points='50,25 75,80 25,80' /%3E%3Ccircle fill='none' stroke='rgba(212, 175, 55, 0.3)' cx='50' cy='50' r='30' /%3E%3Ccircle fill='rgba(212, 175, 55, 0.1)' cx='50' cy='50' r='5' /%3E%3C/svg%3E")`,
               backgroundSize: "contain",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat"
             }}
             animate={{ 
               rotate: [0, 360],
-              scale: [1, 1.05, 1]
+              scale: [1, 1.03, 1]
             }}
             transition={{ 
-              rotate: { duration: 90, repeat: Infinity, ease: "linear" },
-              scale: { duration: 10, repeat: Infinity, ease: "easeInOut" }
+              rotate: { duration: 120, repeat: Infinity, ease: "linear" },
+              scale: { duration: 15, repeat: Infinity, ease: "easeInOut" }
             }}
           />
         </motion.div>
@@ -405,7 +475,7 @@ const Home = () => {
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute rounded-full bg-vedic-beige opacity-20 pointer-events-none"
+            className="absolute rounded-full bg-white opacity-20 pointer-events-none"
             style={{
               left: `${particle.x}vw`,
               top: `${particle.y}vh`,
@@ -413,9 +483,9 @@ const Home = () => {
               height: `${particle.size}px`,
             }}
             animate={{
-              y: [0, -20, 0],
-              opacity: [0.1, 0.3, 0.1],
-              scale: [1, 1.2, 1]
+              y: [0, -30, 0],
+              opacity: [0.1, 0.4, 0.1],
+              scale: [1, 1.1, 1]
             }}
             transition={{
               duration: particle.duration,
@@ -436,7 +506,7 @@ const Home = () => {
               top: `${om.y}vh`,
               width: `${om.size}px`,
               height: `${om.size}px`,
-              filter: `drop-shadow(0 0 ${5 * om.glowIntensity}px rgba(243, 233, 198, ${0.3 * om.glowIntensity}))`,
+              filter: `drop-shadow(0 0 ${5 * om.glowIntensity}px rgba(255, 255, 255, ${0.6 * om.glowIntensity}))`,
             }}
             initial={{ 
               opacity: 0,
@@ -444,27 +514,22 @@ const Home = () => {
               scale: 0.8
             }}
             animate={{
-              opacity: [0.4, 0.7 * om.pulseStrength, 0.4],
-              rotate: [om.rotation, om.rotation + 5, om.rotation - 3, om.rotation],
-              x: [0, om.pathRadius * -0.15, om.pathRadius * 0.15, 0],
-              y: [0, om.pathRadius * -0.15, om.pathRadius * 0.15, 0],
-              scale: [0.8, 1 * om.pulseStrength, 0.9, 0.8],
+              opacity: [0.3, 0.7 * om.pulseStrength, 0.3], // More visible opacity range
+              rotate: [om.rotation, om.rotation + 5, om.rotation - 3, om.rotation], // More noticeable rotation
+              x: [0, om.pathRadius * -0.2, om.pathRadius * 0.2, 0], // Larger floating movement
+              y: [0, om.pathRadius * -0.15, om.pathRadius * 0.15, 0], // More vertical float
+              scale: [0.9, 1.0 * om.pulseStrength, 0.95, 0.9], // More noticeable breathing effect
               filter: [
-                `drop-shadow(0 0 ${8 * om.glowIntensity}px rgba(243, 233, 198, ${0.3 * om.glowIntensity}))`, 
-                `drop-shadow(0 0 ${20 * om.glowIntensity}px rgba(243, 233, 198, ${0.5 * om.glowIntensity}))`, 
-                `drop-shadow(0 0 ${8 * om.glowIntensity}px rgba(243, 233, 198, ${0.3 * om.glowIntensity}))`
+                `drop-shadow(0 0 ${6 * om.glowIntensity}px rgba(255, 255, 255, ${0.5 * om.glowIntensity}))`, 
+                `drop-shadow(0 0 ${15 * om.glowIntensity}px rgba(255, 255, 255, ${0.8 * om.glowIntensity}))`, 
+                `drop-shadow(0 0 ${6 * om.glowIntensity}px rgba(255, 255, 255, ${0.5 * om.glowIntensity}))`
               ]
             }}
             transition={{
-              duration: om.duration * 2,
+              duration: om.duration * 1.5, // Balanced timing - visible but still meditative (9-21s cycles)
               repeat: Infinity,
               delay: om.delay,
               ease: "easeInOut"
-            }}
-            whileHover={{
-              scale: 1.1,
-              opacity: 0.2,
-              transition: { duration: 0.3 }
             }}
           >
             <img 
@@ -486,7 +551,7 @@ const Home = () => {
               key={`code-${i}`}
               className="absolute text-xs font-mono"
               style={{
-                color: i % 3 === 0 ? 'rgba(212, 175, 55, 0.5)' : 'rgba(244, 232, 203, 0.3)',
+                color: i % 3 === 0 ? 'rgba(212, 175, 55, 0.7)' : 'rgba(244, 232, 203, 0.5)',
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 opacity: 0,
@@ -494,14 +559,14 @@ const Home = () => {
               }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ 
-                opacity: [0, 0.7, 0],
-                y: [0, 200],
-                x: i % 2 === 0 ? [0, 20, -10, 5] : [0, -15, 5, -5]
+                opacity: [0, 0.6, 0],
+                y: [0, 250],
+                x: i % 2 === 0 ? [0, 15, -8, 3] : [0, -12, 3, -3]
               }}
               transition={{
-                duration: Math.random() * 10 + 15,
+                duration: Math.random() * 12 + 18,
                 repeat: Infinity,
-                delay: Math.random() * 20,
+                delay: Math.random() * 25,
                 ease: "linear"
               }}
             >
@@ -516,12 +581,12 @@ const Home = () => {
         
         {/* Hero content with staggered animations - existing code enhanced */}
         <motion.div 
-          className="text-center z-20 max-w-3xl px-8 bg-gradient-to-b from-transparent via-vedic-brown to-transparent py-12 rounded-lg backdrop-blur-sm"
+          className="text-center z-20 max-w-3xl px-8 py-12 rounded-lg backdrop-blur-sm"
           style={{
-            background: 'rgba(93, 64, 55, 0.4)',
-            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-            backdropFilter: 'blur(5px)',
-            border: '1px solid rgba(244, 232, 203, 0.15)',
+            background: 'rgba(59, 46, 30, 0.7)',
+            boxShadow: '0 4px 30px rgba(212, 175, 55, 0.2)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(212, 175, 55, 0.2)',
           }}
           variants={heroVariants}
           initial="hidden"
@@ -541,9 +606,9 @@ const Home = () => {
             }}
           >
             <svg width="80" height="40" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M50 0C40 15 30 25 10 25C30 25 40 45 50 45C60 45 70 25 90 25C70 25 60 15 50 0Z" fill="rgba(244, 232, 203, 0.5)" />
-              <path d="M50 10C45 20 40 25 25 25C40 25 45 40 50 40C55 40 60 25 75 25C60 25 55 20 50 10Z" fill="rgba(244, 232, 203, 0.7)" />
-              <circle cx="50" cy="25" r="5" fill="rgba(212, 175, 55, 0.7)" />
+              <path d="M50 0C40 15 30 25 10 25C30 25 40 45 50 45C60 45 70 25 90 25C70 25 60 15 50 0Z" fill="rgba(212, 175, 55, 0.5)" />
+              <path d="M50 10C45 20 40 25 25 25C40 25 45 40 50 40C55 40 60 25 75 25C60 25 55 20 50 10Z" fill="rgba(245, 158, 11, 0.7)" />
+              <circle cx="50" cy="25" r="5" fill="rgba(251, 191, 36, 0.7)" />
             </svg>
           </motion.div>
 
@@ -551,21 +616,21 @@ const Home = () => {
             <AnimatedTitle 
               englishText="CODEVEDA" 
               hindiText="कोड वेदा" 
-              className="text-5xl md:text-6xl font-bold mb-4 tracking-wider text-vedic-beige uppercase"
+              className="text-5xl md:text-6xl font-bold mb-4 tracking-wider text-white uppercase"
               speed={0.1} 
               delayBetween={2} 
             />
           </motion.div>
           
           <motion.h2 
-            className="text-2xl font-normal mb-6 text-vedic-beige text-opacity-80"
+            className="text-2xl font-normal mb-6 text-white text-opacity-90"
             variants={itemVariants}
           >
             Where Ancient Wisdom Meets Modern Technology
           </motion.h2>
           
           <motion.p 
-            className="text-lg max-w-xl mx-auto mb-8 text-vedic-beige text-opacity-80"
+            className="text-lg max-w-xl mx-auto mb-8 text-white text-opacity-80"
             variants={itemVariants}
           >
             Join us for a unique hackathon experience blending Vedic knowledge with cutting-edge innovation
@@ -621,7 +686,7 @@ const Home = () => {
             variants={itemVariants}
           >
             <motion.button
-              className="bg-gradient-to-r from-[#E6D195] to-[#D4AF37] text-vedic-brown text-lg font-semibold py-3 px-8 rounded cursor-pointer relative overflow-hidden group"
+              className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500 text-amber-900 text-lg font-semibold py-3 px-8 rounded cursor-pointer relative overflow-hidden group"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -639,7 +704,7 @@ const Home = () => {
                 <svg width="100%" height="100%" viewBox="0 0 100 100" className="absolute inset-0">
                   <motion.path 
                     d="M0,50 H20 C30,50 30,30 40,30 H60 C70,30 70,50 80,50 H100" 
-                    stroke="rgba(93, 64, 55, 0.3)" 
+                    stroke="rgba(59, 46, 30, 0.5)" 
                     strokeWidth="1" 
                     fill="transparent"
                     initial={{ pathLength: 0 }}
@@ -653,7 +718,7 @@ const Home = () => {
               
               {/* Radial gradient hover effect */}
               <motion.span 
-                className="absolute inset-0 rounded bg-gradient-to-r from-[#E6D195] to-[#D4AF37]"  
+                className="absolute inset-0 rounded bg-gradient-to-r from-yellow-400 to-amber-500"  
                 style={{ 
                   background: "radial-gradient(circle at center, rgba(212, 175, 55, 0.9) 0%, rgba(244, 232, 203, 0.5) 100%)",
                   opacity: 0 
@@ -665,12 +730,12 @@ const Home = () => {
             </motion.button>
             
             <motion.button
-              className="bg-transparent border-2 border-vedic-beige text-vedic-beige text-lg font-semibold py-3 px-8 rounded cursor-pointer relative overflow-hidden group"
+              className="bg-transparent border-2 border-white text-white text-lg font-semibold py-3 px-8 rounded cursor-pointer relative overflow-hidden group"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
               style={{ 
-                boxShadow: "0px 4px 10px rgba(243, 233, 198, 0.1)",
+                boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.1)",
                 transition: "all 0.3s ease"
               }}
             >
@@ -694,47 +759,47 @@ const Home = () => {
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 1 }}
                 style={{
-                  background: "linear-gradient(90deg, transparent, rgba(244, 232, 203, 0.2), transparent)",
+                  background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)",
                 }}
               />
             </motion.button>
           </motion.div>
           
           <motion.div 
-            className="flex justify-center gap-8 mt-4 md:flex-row flex-col text-vedic-beige relative z-10"
+            className="flex justify-center gap-8 mt-4 md:flex-row flex-col text-white relative z-10"
             variants={itemVariants}
           >
             <motion.div 
-              className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(244,232,203,0.1)] to-transparent"
+              className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent"
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0px 2px 10px rgba(244, 232, 203, 0.2)"
+                boxShadow: "0px 2px 10px rgba(255, 255, 255, 0.2)"
               }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <FaCalendarAlt className="text-xl text-vedic-beige" />
+              <FaCalendarAlt className="text-xl text-white" />
               <span>September 13, 2025</span>
             </motion.div>
             <motion.div 
-              className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(244,232,203,0.1)] to-transparent"
+              className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent"
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0px 2px 10px rgba(244, 232, 203, 0.2)" 
+                boxShadow: "0px 2px 10px rgba(255, 255, 255, 0.2)" 
               }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <FaMapMarkerAlt className="text-xl text-vedic-beige" />
+              <FaMapMarkerAlt className="text-xl text-white" />
               <span>Microsoft, Gurugram</span>
             </motion.div>
             <motion.div 
-              className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(244,232,203,0.1)] to-transparent"
+              className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent"
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0px 2px 10px rgba(244, 232, 203, 0.2)"
+                boxShadow: "0px 2px 10px rgba(255, 255, 255, 0.2)"
               }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <FaTrophy className="text-xl text-vedic-beige" />
+              <FaTrophy className="text-xl text-white" />
               <span>₹5,00,000 Prize Pool</span>
             </motion.div>
           </motion.div>
@@ -754,11 +819,11 @@ const Home = () => {
             }}
           >
             <svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M40 0L50 20H30L40 0Z" fill="rgba(244, 232, 203, 0.6)" />
-              <path d="M40 40L50 20H30L40 40Z" fill="rgba(244, 232, 203, 0.6)" />
-              <path d="M0 20L20 30V10L0 20Z" fill="rgba(244, 232, 203, 0.6)" />
-              <path d="M80 20L60 30V10L80 20Z" fill="rgba(244, 232, 203, 0.6)" />
-              <circle cx="40" cy="20" r="5" fill="rgba(212, 175, 55, 0.7)" />
+              <path d="M40 0L50 20H30L40 0Z" fill="rgba(59, 130, 246, 0.6)" />
+              <path d="M40 40L50 20H30L40 40Z" fill="rgba(59, 130, 246, 0.6)" />
+              <path d="M0 20L20 30V10L0 20Z" fill="rgba(59, 130, 246, 0.6)" />
+              <path d="M80 20L60 30V10L80 20Z" fill="rgba(59, 130, 246, 0.6)" />
+              <circle cx="40" cy="20" r="5" fill="rgba(16, 185, 129, 0.7)" />
             </svg>
           </motion.div>
         </motion.div>
@@ -771,19 +836,19 @@ const Home = () => {
       
     
       
-      <section className="py-20 px-8 bg-vedic-brown relative bg-[url('../assets/images/register-bg.jpg')] bg-cover bg-center bg-fixed before:content-[''] before:absolute before:inset-0 before:bg-vedic-brown before:bg-opacity-90">
+      <section className="py-20 px-8 relative" style={{ backgroundColor: '#3b2e1e' }}>
         <motion.div
           className="max-w-3xl mx-auto text-center z-10 relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-vedic-beige mb-4">Ready to Join the Movement?</h2>
-          <p className="text-lg text-vedic-beige text-opacity-80 mb-8">Register now and be part of a revolutionary hackathon experience.</p>
+          <h2 className="text-4xl font-bold text-white mb-4">Ready to Join the Movement?</h2>
+          <p className="text-lg text-white text-opacity-80 mb-8">Register now and be part of a revolutionary hackathon experience.</p>
           
           <a href='https://vision.hack2skill.com/event/codeveda' target='_blank'>
           <motion.button
-            className="bg-vedic-beige text-vedic-brown text-lg font-semibold py-3 px-10 rounded cursor-pointer"
+            className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500 text-amber-900 text-lg font-semibold py-3 px-10 rounded cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
