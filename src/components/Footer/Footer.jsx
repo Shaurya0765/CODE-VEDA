@@ -23,7 +23,6 @@ const Footer = () => {
             <StyledLink to="/why-code-veda">Why CodeVeda</StyledLink>
             <StyledLink to="/problem-statements">Problem Statements</StyledLink>
             <StyledLink to="/schedule">Schedule</StyledLink>
-            <StyledLink to="/events">Events</StyledLink>
             <StyledLink to="/prizes">Prizes</StyledLink>
             <StyledLink to="/sponsors">Sponsors</StyledLink>
             <StyledLink to="/team">Team</StyledLink>

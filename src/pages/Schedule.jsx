@@ -308,8 +308,8 @@ const Schedule = () => {
               <span className="day-circle"></span>
             </div>
             <div className="day-text">
-              <span className="day-number">दिवस 1</span>
-              <span className="day-name">सृष्टि (Creation)</span>
+              {/* <span className="day-number">दिवस 1</span> */}
+              {/* <span className="day-name">सृष्टि (Creation)</span> */}
             </div>
           </div>
         </div>

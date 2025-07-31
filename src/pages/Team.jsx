@@ -123,12 +123,11 @@ const Team = () => {
       </p>
 
       <div className='flex flex-row gap-4 justify-center p-4 text-[#3b2e1e] text-3xl'>
-        {/*<div className='w-10 h-10 sm:w-12 sm:h-12 bg-[#f3e9c6] rounded-full flex items-center justify-center  cursor-pointer'>
-          <RiGithubLine><a href={member.social.linkedin} target="_blank" /></RiGithubLine>
-        </div>*/}
-        <div className='w-10 h-10 sm:w-12 sm:h-12 bg-[#f3e9c6] rounded-full flex items-center justify-center cursor-pointer'>
-          <FaLinkedinIn><a href={member.social.github} target="_blank" /></FaLinkedinIn>
-        </div>
+        <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
+          <div className='w-10 h-10 sm:w-12 sm:h-12 bg-[#f3e9c6] rounded-full flex items-center justify-center cursor-pointer'>
+            <FaLinkedinIn />
+          </div>
+        </a>
       </div>
     </div>
 

@@ -329,7 +329,10 @@ const Sponsors = () => {
               
                 <p className="italic text-[#3b2e1e]">
                   Your support helps us deliver meaningful experiences, reach underserved audiences, and drive lasting results. In return, you'll benefit from increased brand visibility, stronger customer loyalty, and the goodwill that comes from supporting a cause that resonates. Together, we can make a real difference — and ensure your brand stands out for all the right reasons.
+                  <a href="https://forms.gle/FmU2ktDsAoLFFFGMA">
+
                   <button className='text-[#d4af37] mx-2 bg-[#3b2e1e] rounded-xl p-1 animate-bounce mt-1'>Click here</button>
+                  </a>
                 </p>
               </div>
             </motion.div>
