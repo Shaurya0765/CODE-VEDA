@@ -1311,15 +1311,26 @@ const ChapterList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  
+  max-height: 350px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #c17e40 #f5ecd9;
+  /* For Webkit browsers */
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: #f5ecd9;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #c17e40;
+    border-radius: 4px;
+  }
   @media (max-width: 768px) {
     gap: 0.6rem;
-    max-height: 300px;
-    overflow-y: auto;
+    max-height: 220px;
   }
-  
   @media (max-width: 480px) {
     gap: 0.5rem;
+    max-height: 160px;
   }
 `;
 

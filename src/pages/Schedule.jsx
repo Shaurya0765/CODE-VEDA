@@ -110,12 +110,12 @@ const Schedule = () => {
         title: "Tracks",
         icon: "🛤️",
         highlight: true,
-        description: `• Code For Karma • Open Innovation • Healthcare • IoT • AR/VR • Sustainable Development • App Development`,
+        description: `• Code For Karma • Healthcare • IoT • AR/VR • Sustainable Development • App Development`,
         subItems: [
           {
             title: "Track Details",
             description: `➤ Code For Karma: Solutions that benefit society
-➤ Open Innovation: Most creative and innovative ideas
+
 ➤ Healthcare: Medical and wellness technologies
 ➤ Sustainable Development: Environmental solutions`,
             icon: "🔍"
