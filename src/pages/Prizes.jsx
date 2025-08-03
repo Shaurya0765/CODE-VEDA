@@ -393,14 +393,15 @@ const VedicPrizeSection = () => {
               className="text-2xl md:text-4xl font-bold my-4"
               style={{ color: accentColor }}
             >
-              {/* {prizes[0].amount} */}
-To Be Announced Soon...
-
+              ₹15,000
+              <div className="text-sm md:text-base font-normal opacity-80">
+                (Cash + Swags)
+              </div>
             </div>
             {/* <ul className="mt-auto space-y-1 md:space-y-2">
               {prizes[0].perks.map((perk, i) => (
                 <li key={i} className="flex items-center">
-                  <span className="mr-2" style={{ color: accentColor }}>
+                  <span className="mr-2" style={{ color: accentColo r }}>
                     ✦
                   </span>
                   <span className="opacity-90 text-xs md:text-sm">{perk}</span>
@@ -666,8 +667,10 @@ To Be Announced Soon...
                   className="text-3xl font-bold my-3"
                   style={{ color: accentColor }}
                 >
-                  {/* {prizes[idx].amount} */}
-                  To Be Announced Soon...
+                  ₹15,000
+                  <div className="text-sm font-normal opacity-80">
+                    (Cash + Swags)
+                  </div>
                 </div>
                 {/* <ul className="mt-auto space-y-1.5">
                   {prizes[idx].perks.map((perk, i) => (
@@ -797,8 +800,10 @@ To Be Announced Soon...
                 className="text-3xl font-bold my-3"
                 style={{ color: accentColor }}
               >
-                {/* {prizes[1].amount} */}
-                To Be Announced Soon...
+                ₹10,000
+                <div className="text-sm font-normal opacity-80">
+                  (Cash + Swags)
+                </div>
               </div>
               {/* <ul className="mt-auto space-y-1.5">
                 {prizes[1].perks.map((perk, i) => (
@@ -916,8 +921,7 @@ To Be Announced Soon...
                 className="text-3xl font-bold my-3"
                 style={{ color: accentColor }}
               >
-               
-               To Be Announced Soon... {/* {prizes[2].amount} */}
+               To Be Announced Soon...
               </div>
               {/* <ul className="mt-auto space-y-1.5">
                 {prizes[2].perks.map((perk, i) => (
