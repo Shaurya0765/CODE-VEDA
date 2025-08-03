@@ -395,7 +395,7 @@ const VedicPrizeSection = () => {
             >
               ₹15,000
               <div className="text-sm md:text-base font-normal opacity-80">
-                (Cash + Swags)
+                (Inclusive of Cash + Swags)
               </div>
             </div>
             {/* <ul className="mt-auto space-y-1 md:space-y-2">
@@ -657,6 +657,11 @@ const VedicPrizeSection = () => {
                       {prizes[idx].title}
                     </h3>
                     <p className="text-xs italic opacity-80">{prizes[idx].sanskrit}</p>
+                    {idx === 2 && (
+                      <p className="text-base font-semibold mt-1" style={{ color: accentColor }}>
+                        Track Winner
+                      </p>
+                    )}
                   </div>
                   <span className="text-4xl" style={{ color: accentColor }}>
                     {prizes[idx].icon}
@@ -669,7 +674,7 @@ const VedicPrizeSection = () => {
                 >
                   ₹15,000
                   <div className="text-sm font-normal opacity-80">
-                    (Cash + Swags)
+                    (Inclusive of Cash + Swags)
                   </div>
                 </div>
                 {/* <ul className="mt-auto space-y-1.5">
@@ -802,7 +807,7 @@ const VedicPrizeSection = () => {
               >
                 ₹10,000
                 <div className="text-sm font-normal opacity-80">
-                  (Cash + Swags)
+                  (Inclusive of Cash + Swags)
                 </div>
               </div>
               {/* <ul className="mt-auto space-y-1.5">
@@ -910,6 +915,9 @@ const VedicPrizeSection = () => {
                   </h3>
                   <p className="text-xs italic opacity-80">
                     {prizes[2].sanskrit}
+                  </p>
+                  <p className="text-base font-semibold mt-1" style={{ color: accentColor }}>
+                    Track Winner
                   </p>
                 </div>
                 <span className="text-4xl" style={{ color: accentColor }}>
