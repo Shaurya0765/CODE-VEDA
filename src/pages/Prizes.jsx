@@ -672,10 +672,12 @@ const VedicPrizeSection = () => {
                   className="text-3xl font-bold my-3"
                   style={{ color: accentColor }}
                 >
-                  ₹15,000
-                  <div className="text-sm font-normal opacity-80">
-                    (Inclusive of Cash + Swags)
-                  </div>
+                  {idx === 0 ? "₹15,000" : idx === 1 ? "₹10,000" : "To Be Announced Soon..."}
+                  {idx !== 2 && (
+                    <div className="text-sm font-normal opacity-80">
+                      (Inclusive of Cash + Swags)
+                    </div>
+                  )}
                 </div>
                 {/* <ul className="mt-auto space-y-1.5">
                   {prizes[idx].perks.map((perk, i) => (
