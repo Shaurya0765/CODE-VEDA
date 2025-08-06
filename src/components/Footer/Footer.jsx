@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
-import { FaTwitter, FaInstagram, FaLinkedin, FaGithub, FaEnvelope,FaGlobe } from 'react-icons/fa';
+import { FaTwitter, FaInstagram, FaLinkedin, FaGithub, FaEnvelope, FaGlobe, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -36,7 +36,10 @@ const Footer = () => {
           <div className="link-group">
             <h3>Contact</h3>
             <a href="mailto:geekroomadgips@gmail.com">geekroomadgips@gmail.com</a>
-            
+            <a href="https://chat.whatsapp.com/KGPnKMdvAP99mqAqyNVanC?mode=ac_t" target="_blank" rel="noopener noreferrer">
+              <FaWhatsapp style={{ marginRight: '0.5rem' }} />
+              WhatsApp Community
+            </a>
           </div>
         </div>
       </div>
