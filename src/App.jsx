@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Header from './components/Header/Header.jsx'; // Add the .jsx extension
+import SecurityMonitor from './components/SecurityMonitor';
 
 // Wrapper component to handle navigation state
 const HomeWrapper = ({ hasEntered, setHasEntered, HomeComponent }) => {
@@ -89,6 +90,7 @@ function App() {
     <Router>
       <Head />
       <GlobalStyles />
+      <SecurityMonitor />
       
       {/* Only show header and footer if user has entered the site */}        {hasEntered && <Header />}
         

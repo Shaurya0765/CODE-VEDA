@@ -1,16 +1,78 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaCode, FaHeart, FaVrCardboard, FaMobile, FaLeaf, FaNetworkWired, FaLightbulb, FaChevronLeft, FaChevronRight, FaSearch, FaFilePdf, FaDownload } from 'react-icons/fa';
 import { GiScrollQuill } from 'react-icons/gi';
+import { validateSearchTerm, debounce, validateFilePath, rateLimiter } from '../utils/security';
+import SecureFileDownload from '../components/SecureFileDownload';
 
 const ProblemStatements = () => {
   const [activeTrack, setActiveTrack] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
+  const [downloadError, setDownloadError] = useState('');
   
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  // Secure search handler with debouncing
+  const handleSearchChange = useCallback(
+    debounce((value) => {
+      const cleanValue = validateSearchTerm(value);
+      setSearchTerm(cleanValue);
+    }, 300),
+    []
+  );
+
+  const onSearchInputChange = (e) => {
+    handleSearchChange(e.target.value);
+  };
+
+  // Secure PDF download function
+  const handleDownloadPDF = useCallback((e) => {
+    e.preventDefault();
+    setDownloadError('');
+
+    // Rate limiting check
+    if (!rateLimiter.isAllowed('pdf_download', 3, 60000)) {
+      const remaining = rateLimiter.getRemainingAttempts('pdf_download', 3);
+      setDownloadError(`Download limit exceeded. Try again in 1 minute. Remaining: ${remaining}`);
+      return;
+    }
+
+    const filePath = '/Guidelines For PPT Submission (1).pdf';
+    
+    // Validate file path
+    if (!validateFilePath(filePath)) {
+      setDownloadError('Invalid file path. Access denied.');
+      console.warn('Attempted access to invalid file path:', filePath);
+      return;
+    }
+
+    try {
+      // Create secure download link
+      const link = document.createElement('a');
+      link.href = filePath;
+      link.download = 'Guidelines_For_PPT_Submission.pdf';
+      
+      // Add security attributes
+      link.rel = 'noopener noreferrer';
+      link.target = '_blank';
+      
+      // Temporarily add to DOM and trigger download
+      document.body.appendChild(link);
+      link.click();
+      
+      // Clean up
+      setTimeout(() => {
+        document.body.removeChild(link);
+      }, 100);
+
+    } catch (error) {
+      console.error('Download error:', error);
+      setDownloadError('Download failed. Please try again later.');
+    }
   }, []);
 
   const problemTracks = [
@@ -97,15 +159,6 @@ const ProblemStatements = () => {
     setActiveTrack((prev) => (prev - 1 + filteredTracks.length) % filteredTracks.length);
   };
 
-  const handleDownloadPDF = () => {
-    const link = document.createElement('a');
-    link.href = '/Guidelines For PPT Submission (1).pdf';
-    link.download = 'Guidelines_For_PPT_Submission.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <ProblemStatementsContainer>
       {/* Background decorative elements */}
@@ -170,13 +223,16 @@ const ProblemStatements = () => {
             type="text"
             placeholder="Search problem tracks..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={onSearchInputChange}
             className="search-input"
+            maxLength="100"
+            autoComplete="off"
           />
           {searchTerm && (
             <button 
               className="clear-search" 
               onClick={() => setSearchTerm('')}
+              aria-label="Clear search"
             >
               ✕
             </button>
@@ -347,6 +403,12 @@ const ProblemStatements = () => {
             <FaDownload />
             Download PDF Guidelines
           </motion.button>
+          
+          {downloadError && (
+            <div className="download-error" role="alert">
+              {downloadError}
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -960,6 +1022,23 @@ const ProblemStatementsContainer = styled.div`
         svg {
           width: 18px;
           height: 18px;
+        }
+      }
+
+      .download-error {
+        margin-top: 1rem;
+        padding: 0.8rem 1.2rem;
+        background: linear-gradient(135deg, #ff4757, #ff3838);
+        color: white;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        text-align: center;
+        border: 1px solid #ff3838;
+        box-shadow: 0 2px 8px rgba(255, 56, 56, 0.2);
+        
+        &::before {
+          content: "⚠️ ";
+          margin-right: 0.5rem;
         }
       }
     }

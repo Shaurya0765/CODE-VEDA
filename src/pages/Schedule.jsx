@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaExpandAlt, FaCompressAlt, FaRegBookmark, FaBookmark, FaInfoCircle } from 'react-icons/fa';
 import { GiScrollQuill, GiIndiaGate } from 'react-icons/gi';
 import { BsCalendarEvent, BsClock, BsGearFill } from 'react-icons/bs';
+import { sanitizeContent, validateSearchTerm, secureStorage, rateLimiter, debounce } from '../utils/security';
 
 const Schedule = () => {
   const [activeDay, setActiveDay] = useState(1);
@@ -12,43 +13,79 @@ const Schedule = () => {
   const [bookmarkedItems, setBookmarkedItems] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredData, setFilteredData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Load bookmarks from localStorage
-    const savedBookmarks = JSON.parse(localStorage.getItem('hackathonBookmarks')) || {};
+    // Load bookmarks from secure storage
+    const savedBookmarks = secureStorage.getItem('hackathonBookmarks', {});
     setBookmarkedItems(savedBookmarks);
   }, []);
 
-  useEffect(() => {
-    // Filter schedule data based on search term
-    if (scheduleData[activeDay]) {
-      const filtered = scheduleData[activeDay].filter(item => 
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (item.description && item.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (item.subItems && item.subItems.some(sub => 
-          sub.description && sub.description.toLowerCase().includes(searchTerm.toLowerCase())
-        ))
-      );
-      setFilteredData(filtered);
-    }
-  }, [searchTerm, activeDay]);
+  // Debounced search to prevent excessive filtering
+  const debouncedSearch = useCallback(
+    debounce((term, day) => {
+      setIsLoading(true);
+      try {
+        if (scheduleData[day]) {
+          const cleanTerm = validateSearchTerm(term);
+          const filtered = scheduleData[day].filter(item => 
+            item.title.toLowerCase().includes(cleanTerm.toLowerCase()) ||
+            (item.description && sanitizeContent(item.description, true).toLowerCase().includes(cleanTerm.toLowerCase())) ||
+            (item.subItems && item.subItems.some(sub => 
+              sub.description && sanitizeContent(sub.description, true).toLowerCase().includes(cleanTerm.toLowerCase())
+            ))
+          );
+          setFilteredData(filtered);
+        }
+      } catch (error) {
+        console.error('Search error:', error);
+        setFilteredData(scheduleData[day] || []);
+      } finally {
+        setIsLoading(false);
+      }
+    }, 300),
+    []
+  );
 
-  const toggleExpand = (index) => {
+  useEffect(() => {
+    debouncedSearch(searchTerm, activeDay);
+  }, [searchTerm, activeDay, debouncedSearch]);
+
+  const toggleExpand = useCallback((index) => {
+    // Rate limit expand/collapse actions
+    if (!rateLimiter.isAllowed('expand_item', 10, 1000)) {
+      console.warn('Rate limit exceeded for expand action');
+      return;
+    }
+
     setExpandedItems(prev => ({
       ...prev,
       [index]: !prev[index]
     }));
-  };
+  }, []);
 
-  const toggleBookmark = (index) => {
+  const toggleBookmark = useCallback((index) => {
+    // Rate limit bookmark actions
+    if (!rateLimiter.isAllowed('bookmark_item', 20, 1000)) {
+      console.warn('Rate limit exceeded for bookmark action');
+      return;
+    }
+
     const newBookmarks = {
       ...bookmarkedItems,
       [index]: !bookmarkedItems[index]
     };
     setBookmarkedItems(newBookmarks);
-    localStorage.setItem('hackathonBookmarks', JSON.stringify(newBookmarks));
-  };
+    secureStorage.setItem('hackathonBookmarks', newBookmarks);
+  }, [bookmarkedItems]);
+
+  // Secure search input handler
+  const handleSearchChange = useCallback((e) => {
+    const value = e.target.value;
+    const cleanValue = validateSearchTerm(value);
+    setSearchTerm(cleanValue);
+  }, []);
 
   // Enhanced schedule data with more structure and icons
   const scheduleData = {
@@ -288,13 +325,16 @@ const Schedule = () => {
               type="text"
               placeholder="Search schedule..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={handleSearchChange}
               className="search-input"
+              maxLength="100"
+              autoComplete="off"
             />
             {searchTerm && (
               <button 
                 className="clear-search" 
                 onClick={() => setSearchTerm('')}
+                aria-label="Clear search"
               >
                 ✕
               </button>
@@ -367,9 +407,10 @@ const Schedule = () => {
                       className="event-description"
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
-                    >
-                      {item.description}
-                    </motion.div>
+                      dangerouslySetInnerHTML={{ 
+                        __html: sanitizeContent(item.description) 
+                      }}
+                    />
                   )}
                   
                   {item.highlight && !item.isHeader && (
@@ -406,7 +447,12 @@ const Schedule = () => {
                               {subItem.icon && <span className="sub-item-icon">{subItem.icon}</span>}
                               {subItem.title && <h4 className="sub-item-title">{subItem.title}</h4>}
                             </div>
-                            <div className="sub-item-description">{subItem.description}</div>
+                            <div 
+                              className="sub-item-description"
+                              dangerouslySetInnerHTML={{ 
+                                __html: sanitizeContent(subItem.description) 
+                              }}
+                            />
                           </div>
                         ))}
                       </motion.div>

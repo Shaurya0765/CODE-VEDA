@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "security:audit": "npm audit --audit-level moderate",
+    "security:fix": "npm audit fix",
+    "security:check": "npm run security:audit && npm run lint",
+    "build:secure": "npm run security:check && npm run build",
+    "analyze": "npx vite-bundle-analyzer"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -16,9 +21,9 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@react-three/drei": "^9.77.0",
     "@react-three/fiber": "^8.13.5",
+    "dompurify": "^3.2.6",
     "framer-motion": "^10.16.4",
     "howler": "^2.2.4",
-    "jquery": "^3.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.5",
@@ -28,8 +33,7 @@
     "react-router-dom": "^6.16.0",
     "styled-components": "^6.0.8",
     "tailwindcss": "^3.0.0",
-    "three": "^0.151.3",
-    "turn.js": "^1.0.5"
+    "three": "^0.151.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -42,6 +46,6 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.0",
     "terser": "^5.43.1",
-    "vite": "^4.4.5"
+    "vite": "^6.3.5"
   }
 }
