@@ -87,7 +87,7 @@ You can propose your own track if it aligns with Digital Dharma principles.`
     },
     {
       question: "Will accommodation be provided for the offline round?",
-      answer: "Yes, basic accommodation will be provided for outstation participants during the offline hackathon at Masters' Union. Details will be shared with shortlisted teams."
+      answer: "Yes, basic accommodation will be provided for outstation participants during the offline hackathon at Microsoft, Gurugram. Details will be shared with shortlisted teams."
     },
     {
       question: "How can we prepare for the hackathon?",
