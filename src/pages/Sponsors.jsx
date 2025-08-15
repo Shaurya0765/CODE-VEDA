@@ -219,7 +219,7 @@ const Sponsors = () => {
                   <span className="text-xs md:text-sm lg:text-lg font-bold text-white">{index + 1}</span>
                 </div>
                 <a href={sponsor.website} target="_blank" rel="noopener noreferrer">
-                  <div className="p-2 md:p-3 lg:p-4 h-32 md:h-40 lg:h-48 flex items-center justify-center">
+                  <div className="p-2 md:p-3 lg:p-4 h-40 md:h-48 lg:h-56 flex items-center justify-center">
                     <img 
                       src={sponsor.logo} 
                       className="max-h-full max-w-full object-contain transform transition-transform duration-300 hover:scale-110" 

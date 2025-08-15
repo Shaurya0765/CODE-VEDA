@@ -60,6 +60,13 @@
           "description": "Universal technology solutions with Vedic principles.",
           "website": "https://www.geeksforgeeks.org/",
           "tier": "Vishnu Tier"
+        },
+        {
+          "name": "Endless Domains",
+          "logo": "/Endless Domains.svg",
+          "description": "Premium domain registration and web hosting services.",
+          "website": "https://endlessdomains.com/",
+          "tier": "Vishnu Tier"
         }
       ]
     },
