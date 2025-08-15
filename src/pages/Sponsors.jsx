@@ -83,7 +83,13 @@ const Sponsors = () => {
           <div className='text-center  lg:text-xl my-5 font-semibold bg-[#3b2e1e] !text-[#f3e9c6] px-2 rounded-xl bg-[url(/om.png)] bg-repeat bg-blend-soft-light bg-cover'>{all.tier}</div>
          
         <div className='h-[50%] w-[58%] py-5 flex flex-col gap-2 '>
-          <div className='h-[70%] w-full  rounded-md'><img src={all.logo} className='h-full w-full object-contain'/></div>
+          <div className='h-[70%] w-full rounded-md overflow-hidden'>
+            <img 
+              src={all.logo} 
+              className={`h-full w-full transition-transform duration-300 ${all.name === "Endless Domains" ? "object-cover scale-150 hover:scale-[1.65]" : "object-contain hover:scale-110"}`}
+              alt={all.name}
+            />
+          </div>
           <div className='h-[30%] w-full text-center font-bold lg:text-md'>{all.name}</div>
         </div>
         </div>
@@ -219,10 +225,10 @@ const Sponsors = () => {
                   <span className="text-xs md:text-sm lg:text-lg font-bold text-white">{index + 1}</span>
                 </div>
                 <a href={sponsor.website} target="_blank" rel="noopener noreferrer">
-                  <div className="p-2 md:p-3 lg:p-4 h-40 md:h-48 lg:h-56 flex items-center justify-center">
+                  <div className="p-2 md:p-3 lg:p-4 h-40 md:h-48 lg:h-56 flex items-center justify-center overflow-hidden">
                     <img 
                       src={sponsor.logo} 
-                      className="max-h-full max-w-full object-contain transform transition-transform duration-300 hover:scale-110" 
+                      className={`${sponsor.name === "Endless Domains" ? "h-full w-full object-cover scale-150 hover:scale-[1.65]" : "max-h-full max-w-full object-contain hover:scale-110"} transform transition-transform duration-300`} 
                       alt={sponsor.name}
                     />
                   </div>
