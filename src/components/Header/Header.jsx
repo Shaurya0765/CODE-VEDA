@@ -17,6 +17,9 @@ const Header = () => {
     { path: '/prizes', name: 'Prizes' },
     { path: '/sponsors', name: 'Sponsors' },
     { path: '/team', name: 'Team' },
+    { path: '/duality-ai', name: 'Duality AI' }
+
+
   ]
 
   // Update scroll state
