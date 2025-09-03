@@ -16,7 +16,7 @@
           "logo": "/Gen.jpg",
           "description": "Leading AI and machine learning solutions for modern businesses.",
           "website": "",
-          "tier": "Brahma Tier"
+          "tier": "Brahma Tier"
         }
       ]
     },
@@ -67,6 +67,13 @@
           "description": "Premium domain registration and web hosting services.",
           "website": "https://endlessdomains.com/",
           "tier": "Vishnu Tier"
+        },
+        {
+          "name": "AbhiBus",
+          "logo": "/AbhiBus_Nero_AI_Image_Upscaler_Photo_Face.png",
+          "description": "Innovative travel solutions for the modern explorer.",
+          "website": "https://www.AbhiBus.com/",
+          "tier": "Brahma Tier"
         }
       ]
     },
