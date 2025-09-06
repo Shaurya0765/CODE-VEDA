@@ -76,11 +76,11 @@
 
 | Color | Hex Code | Usage |
 |-------|----------|-------|
-| <img src="https://via.placeholder.com/40x20/7d5642/7d5642" alt="Deep Brown" /> | `#7d5642` | Primary text & headers |
-| <img src="https://via.placeholder.com/40x20/c17e40/c17e40" alt="Saffron" /> | `#c17e40` | Accent & highlights |
-| <img src="https://via.placeholder.com/40x20/9c464e/9c464e" alt="Kumkum Red" /> | `#9c464e` | Sanskrit text & quotes |
-| <img src="https://via.placeholder.com/40x20/d4af37/d4af37" alt="Gold" /> | `#d4af37` | Decorative elements |
-| <img src="https://via.placeholder.com/40x20/f1e8d3/f1e8d3" alt="Parchment" /> | `#f1e8d3` | Background & pages |
+| <img src="https://d1l2kcmc130e06.cloudfront.net/shared/images/brand_colors/next-level-apparel-dark-chocolate.jpg" alt="Deep Brown" /> | `#7d5642` | Primary text & headers |
+| <img src="https://www.icolorpalette.com/download/solidcolorimage/ffac00_solid_color_background_icolorpalette.png" alt="Saffron" /> | `#c17e40` | Accent & highlights |
+| <img src="https://www.icolorpalette.com/download/solidcolorimage/d3212d_solid_color_background_icolorpalette.png" alt="Kumkum Red" /> | `#9c464e` | Sanskrit text & quotes |
+| <img src="https://www.icolorpalette.com/download/solidcolorimage/d4af37_solid_color_background_icolorpalette.png" alt="Gold" /> | `#d4af37` | Decorative elements |
+| <img src="https://tse2.mm.bing.net/th/id/OIP.FvOpDuxhdZ18oqcgEJQxFQHaEK?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Parchment" /> | `#f1e8d3` | Background & pages |
 
 </div>
 
